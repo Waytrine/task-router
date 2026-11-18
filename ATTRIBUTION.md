@@ -13,12 +13,12 @@ Task Router is an independent project. It is fine-tuned with the Laya framework 
 ## Base model
 
 - [`convaiinnovations/laya-multilingual`](https://huggingface.co/convaiinnovations/laya-multilingual), revision [`1720e3e3357cfe1e281542e223f8273b0890ca34`](https://huggingface.co/convaiinnovations/laya-multilingual/tree/1720e3e3357cfe1e281542e223f8273b0890ca34). Task Router v1-v4 and the v5 variant trained from base start from this checkpoint.
-- License: see the model card. Its terms are to be confirmed before Task Router weights are published.
+- License: Apache License 2.0 (model card metadata, checked 2026-11-18).
 
 ## Encoder
 
 - [`jhu-clsp/mmBERT-base`](https://huggingface.co/jhu-clsp/mmBERT-base) (ModernBERT architecture), the encoder inside the base checkpoint.
-- License: see the model card; to be confirmed before weights are published.
+- License: MIT (model card metadata, checked 2026-11-18).
 
 ## What this repository adds
 
@@ -28,7 +28,7 @@ Task Router is an independent project. It is fine-tuned with the Laya framework 
 
 ## Not included
 
-- No model weights (Task Router, base model or encoder). Task Router weights will be published separately.
+- No model weights in this repository. Task Router v4 weights are published on [Hugging Face](https://huggingface.co/Waytrine/task-router) under Apache-2.0, with this attribution in the model card. The base model and encoder are not redistributed.
 - No real user requests or other private data.
 
-When weights or modified upstream code are distributed later, include the applicable licenses, keep upstream copyright and NOTICE files, and mark the changes.
+When redistributing the weights, keep the Apache-2.0 license and this attribution, and mark any changes.

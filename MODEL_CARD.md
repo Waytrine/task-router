@@ -11,7 +11,7 @@ Task Router is a 322M-parameter multi-head classifier that answers ten routing q
 - **Built with:** the [Laya framework](https://github.com/NandhaKishorM/laya) (commit `b9fe351ce81e2d974bca2bf219c1e4030c0a05ea`), fine-tuned from [`convaiinnovations/laya-multilingual`](https://huggingface.co/convaiinnovations/laya-multilingual) (revision `1720e3e3357cfe1e281542e223f8273b0890ca34`), whose encoder is [`jhu-clsp/mmBERT-base`](https://huggingface.co/jhu-clsp/mmBERT-base).
 - **Languages:** Chinese and English.
 - **Developer:** Waytrine.
-- **Weights:** not published yet. They will be published separately.
+- **Weights:** v4 on Hugging Face, [`Waytrine/task-router`](https://huggingface.co/Waytrine/task-router) (Apache-2.0). v5 is not published because its training data includes private real requests.
 
 ## Intended use
 
@@ -128,6 +128,6 @@ Median on the current Apple-silicon host (MPS, FP32), by request length: 37 ms s
 
 - This repository: MIT License ([`LICENSE`](LICENSE)). Upstream work is credited in [`ATTRIBUTION.md`](ATTRIBUTION.md).
 - Laya framework: Apache License 2.0.
-- Base model and encoder: see their model cards; terms to be confirmed before the weights are published.
+- Base model `convaiinnovations/laya-multilingual`: Apache License 2.0. Encoder `jhu-clsp/mmBERT-base`: MIT License. The published v4 weights are a derivative of the base model and are released under Apache-2.0.
 
 See [`ATTRIBUTION.md`](ATTRIBUTION.md).

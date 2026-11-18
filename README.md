@@ -8,7 +8,9 @@
 
 **A 322M-parameter classifier and inference API that reads a request to an AI agent system and answers ten routing questions in one forward pass: what kind of task it is, how hard it is, and which tools it needs.** It routes requests in production in [PugPort](https://pugport.com), a multi-agent desktop app. A [Waytrine](https://wyt.si) project.
 
-**[Case study](https://wyt.si/task-router/)** · **[API reference](https://wyt.si/task-router/api/)** · **[Model card](MODEL_CARD.md)**
+<a href="https://huggingface.co/Waytrine/task-router"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Waytrine%2Ftask--router-ffd21e" alt="Model weights on Hugging Face: Waytrine/task-router"></a> <a href="LICENSE"><img src="https://img.shields.io/badge/code-MIT-blue" alt="Code license: MIT"></a> <a href="https://huggingface.co/Waytrine/task-router"><img src="https://img.shields.io/badge/weights-Apache--2.0-blue" alt="Weights license: Apache-2.0"></a>
+
+**[Model weights](https://huggingface.co/Waytrine/task-router)** · **[Case study](https://wyt.si/task-router/)** · **[API reference](https://wyt.si/task-router/api/)** · **[Model card](MODEL_CARD.md)**
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/headline-dark.svg">
@@ -49,7 +51,7 @@ python training/evaluate.py compare eval/synthetic/v3_test_report.json \
   eval/synthetic/v4_test_report.json --out runs/v3-vs-v4.md   # per-head table from the published reports
 ```
 
-The service tests run the real ASGI app against a fake model, so they cover the queue, limits, error codes and log privacy without weights. Anything that runs the model needs a checkpoint, and **Task Router weights are not published yet**:
+The service tests run the real ASGI app against a fake model, so they cover the queue, limits, error codes and log privacy without weights. Anything that runs the model needs a checkpoint. **Task Router v4 is on [Hugging Face](https://huggingface.co/Waytrine/task-router)** (v5 is not published: it was trained with private real requests):
 
 | To do this | You need |
 |---|---|
@@ -110,6 +112,6 @@ How the splits, baselines and sealed set were built: [`eval/README.md`](eval/REA
 
 ## Attribution and license
 
-Built on the [Laya framework](https://github.com/NandhaKishorM/laya) by Convai Innovations (Apache-2.0), the base model [`convaiinnovations/laya-multilingual`](https://huggingface.co/convaiinnovations/laya-multilingual) and the [`jhu-clsp/mmBERT-base`](https://huggingface.co/jhu-clsp/mmBERT-base) encoder. Task Router is an independent project, not a fork of Laya. Neither the base model nor any weights are included here; see [`ATTRIBUTION.md`](ATTRIBUTION.md).
+Built on the [Laya framework](https://github.com/NandhaKishorM/laya) by Convai Innovations (Apache-2.0), the base model [`convaiinnovations/laya-multilingual`](https://huggingface.co/convaiinnovations/laya-multilingual) and the [`jhu-clsp/mmBERT-base`](https://huggingface.co/jhu-clsp/mmBERT-base) encoder. Task Router is an independent project, not a fork of Laya. The v4 weights are published on [Hugging Face](https://huggingface.co/Waytrine/task-router) under Apache-2.0, as a derivative of the Apache-2.0 base model; see [`ATTRIBUTION.md`](ATTRIBUTION.md).
 
-Licensed under the [MIT License](LICENSE).
+The code in this repository is licensed under the [MIT License](LICENSE); the weights on Hugging Face under Apache-2.0.
