@@ -1,0 +1,2 @@
+﻿id,language,head,expected,predicted,message,recent_context,error
+G004-zh,zh,difficulty,simple,standard,检查这个论证有没有自相矛盾，只分析逻辑：所有远程岗位都不要求到岗；这份岗位是远程岗位，但每周必须到办公室两天。,,

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 104" width="880" height="104" role="img" aria-labelledby="t d">
+<title id="t">Task Router in four numbers</title>
+<desc id="d">Mean accuracy over ten heads on 30 sealed real requests rose from 72.0% (v4) to 91.0% (v5). On the synthetic test set it rose from 44.0% (untuned base) to 97.8% (v4). 322M parameters, ten heads answered in one forward pass. Median latency 37 ms for short requests on Apple silicon.</desc>
+<rect x="0.5" y="0.5" width="235" height="103" rx="8" fill="#151b23" stroke="#3d444d"/>
+<text x="18" y="44" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="650" fill="#f0f6fc" text-anchor="start">72.0% → 91.0%</text>
+<text x="18" y="70" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#f0f6fc" text-anchor="start">Sealed real requests</text>
+<text x="18" y="90" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#9198a1" text-anchor="start">v4 → v5, mean of ten heads</text>
+<rect x="244.5" y="0.5" width="235" height="103" rx="8" fill="#151b23" stroke="#3d444d"/>
+<text x="262" y="44" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="650" fill="#f0f6fc" text-anchor="start">44.0% → 97.8%</text>
+<text x="262" y="70" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#f0f6fc" text-anchor="start">Synthetic test set</text>
+<text x="262" y="90" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#9198a1" text-anchor="start">untuned base → v4</text>
+<rect x="488.5" y="0.5" width="175" height="103" rx="8" fill="#151b23" stroke="#3d444d"/>
+<text x="506" y="44" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="650" fill="#f0f6fc" text-anchor="start">322M</text>
+<text x="506" y="70" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#f0f6fc" text-anchor="start">Parameters</text>
+<text x="506" y="90" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#9198a1" text-anchor="start">ten heads, one pass</text>
+<rect x="672.5" y="0.5" width="207" height="103" rx="8" fill="#151b23" stroke="#3d444d"/>
+<text x="690" y="44" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="650" fill="#f0f6fc" text-anchor="start">37 ms</text>
+<text x="690" y="70" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#f0f6fc" text-anchor="start">Median latency</text>
+<text x="690" y="90" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#9198a1" text-anchor="start">short requests, Apple silicon</text>
+</svg>

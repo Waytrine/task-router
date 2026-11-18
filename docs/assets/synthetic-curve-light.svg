@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 312" width="640" height="312" role="img" aria-labelledby="t d">
+<title id="t">Synthetic test accuracy by training rows, v1 to v4</title>
+<desc id="d">Line chart of mean accuracy on the 60-row synthetic test against training rows: base (0 rows) 44.0%, v1 (240 rows) 79.8%, v2 (400 rows) 83.7%, v3 (520 rows) 96.2%, v4 (720 rows) 97.8%. A separate point shows the same v4 at 72.0% on 30 sealed real requests.</desc>
+<text x="0" y="22" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="650" fill="#1f2328" text-anchor="start">Mean accuracy over ten heads, by training rows</text>
+<line x1="0" y1="45" x2="18" y2="45" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="9" cy="45" r="4" fill="#2a78d6"/>
+<text x="26" y="50" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#59636e" text-anchor="start">synthetic test (60 rows)</text>
+<circle cx="218" cy="45" r="5" fill="none" stroke="#eb6834" stroke-width="2.5"/>
+<text x="230" y="50" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#59636e" text-anchor="start">same v4 on 30 sealed real requests</text>
+<line x1="52" y1="262" x2="616" y2="262" stroke="#d8dee4" stroke-width="1"/>
+<text x="44" y="266" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#818b98" text-anchor="end">40%</text>
+<line x1="52" y1="205.333" x2="616" y2="205.333" stroke="#d8dee4" stroke-width="1"/>
+<text x="44" y="209.333" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#818b98" text-anchor="end">60%</text>
+<line x1="52" y1="148.667" x2="616" y2="148.667" stroke="#d8dee4" stroke-width="1"/>
+<text x="44" y="152.667" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#818b98" text-anchor="end">80%</text>
+<line x1="52" y1="92" x2="616" y2="92" stroke="#d8dee4" stroke-width="1"/>
+<text x="44" y="96" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#818b98" text-anchor="end">100%</text>
+<text x="52" y="284" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#818b98" text-anchor="middle">0</text>
+<text x="234.667" y="284" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#818b98" text-anchor="middle">240</text>
+<text x="356.444" y="284" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#818b98" text-anchor="middle">400</text>
+<text x="447.778" y="284" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#818b98" text-anchor="middle">520</text>
+<text x="600" y="284" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#818b98" text-anchor="middle">720</text>
+<text x="616" y="304" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#818b98" text-anchor="end">training rows</text>
+<polyline points="52.0,250.7 234.7,149.2 356.4,138.2 447.8,102.8 600.0,98.2" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="600.0" y1="106.2" x2="600.0" y2="162.3" stroke="#818b98" stroke-width="1" stroke-dasharray="3 3"/>
+<circle cx="52.0" cy="250.7" r="4.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="234.7" cy="149.2" r="4.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="356.4" cy="138.2" r="4.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="447.8" cy="102.8" r="4.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="600.0" cy="98.2" r="4.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<text x="62" y="254.667" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">base 44.0%</text>
+<text x="226.667" y="139.233" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="end" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">v1 79.8%</text>
+<text x="356.444" y="126.183" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">v2 83.7%</text>
+<text x="447.778" y="90.7667" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">v3 96.2%</text>
+<text x="600" y="86.2333" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">v4 97.8%</text>
+<circle cx="600.0" cy="171.3" r="5.5" fill="#ffffff" stroke="#eb6834" stroke-width="2.5"/>
+<text x="588" y="175.333" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="end" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">v4 on real requests 72.0%</text>
+</svg>

@@ -1,0 +1,10 @@
+# Example Cloudflare Tunnel ingress for the service (cloudflared config.yml).
+# Replace the placeholders with your own tunnel and hostname. The service itself only
+# listens on 127.0.0.1; the tunnel connector is the only thing that should reach it.
+tunnel: YOUR_TUNNEL_ID
+credentials-file: /Users/YOUR_USERNAME/.cloudflared/YOUR_TUNNEL_ID.json
+
+ingress:
+  - hostname: router.example.com
+    service: http://127.0.0.1:8787
+  - service: http_status:404

@@ -1,0 +1,22 @@
+{
+  "dataset_version": "pugport-routing-synthetic-v1",
+  "rows": 400,
+  "scenarios": 200,
+  "families": 169,
+  "cross_split_group_overlap": 0,
+  "cross_split_family_overlap": 0,
+  "cross_split_input_overlap": 0,
+  "split_rows": {
+    "train": 240,
+    "validation": 60,
+    "calibration": 40,
+    "test": 60
+  },
+  "sha256": {
+    "data/all.jsonl": "c34da16836a08ea00a26c9476b7705b4051bcb63ca77873de564267719247a28",
+    "data/calibration.jsonl": "574ed6f453510ced42b82d5cd16879ddd36d8df370501cde0b4a645738d313e1",
+    "data/test.jsonl": "ae67dd66378f203ee91106d90f0f0771b76f03a6d498f046e39bbc955c37a021",
+    "data/train.jsonl": "4fff340c2dcd3c6518ce913ead929ab84668c51ae9c62336808e8c99de84b815",
+    "data/validation.jsonl": "cdef15815f73635d760d896379b8d3c53b25ad59746a9fd90ac33030314ce461"
+  }
+}

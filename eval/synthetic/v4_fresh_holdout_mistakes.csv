@@ -1,0 +1,4 @@
+﻿id,language,head,expected,predicted,message,recent_context,error
+FRESH_008-zh,zh,difficulty,simple,standard,我在写故障排查帮助页。请给出一条 PowerShell 命令，用来找出哪个进程监听 TCP 8787 端口，再给一行虚构的输出示例。只把文字贴在回复里，别在我的电脑上执行。,,
+FRESH_014-zh,zh,executor_intent,exclude,none,本轮不要选 Tern。用下面的值班表找出 09:00—12:00 内无人值守的时间段，并给每个缺口的分钟数；区间按左闭右开处理。,,
+FRESH_015-zh,zh,executor_intent,mention_only,none,Pika 是上一轮导出音频的署名。现在听它已经生成的附件播报，对照下面的屏幕阅读器原稿，指出漏读否定词的位置并给时间戳；这次只校对，不重新合成。,,

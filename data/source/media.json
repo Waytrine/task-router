@@ -1,0 +1,1203 @@
+[
+  {
+    "group_id": "M001",
+    "family_id": "M-robot-deliverable",
+    "topic": "image_creation",
+    "zh": "生成一张蓝色小机器人头像，纯白背景，方形构图。",
+    "en": "Generate a blue little robot avatar with a plain white background and a square composition.",
+    "labels": {
+      "task_type": "media",
+      "media_output": "image_create"
+    },
+    "reason_zh": "要求实际生成图片；构图约束明确，任务复杂度不由生成费用决定。",
+    "tags": [
+      "image-positive",
+      "bounded-request"
+    ]
+  },
+  {
+    "group_id": "M002",
+    "family_id": "M-robot-deliverable",
+    "topic": "prompt_not_image",
+    "zh": "帮我写一段生成蓝色机器人头像的英文提示词，先不要出图。",
+    "en": "Write an English prompt for a blue robot avatar. Do not generate the image yet.",
+    "labels": {
+      "task_type": "writing"
+    },
+    "reason_zh": "交付物是提示词文字；提到图片并不要求图像生成。",
+    "tags": [
+      "image-negative",
+      "explicit-negation",
+      "prompt-writing"
+    ]
+  },
+  {
+    "group_id": "M003",
+    "family_id": "M-background-edit",
+    "topic": "image_edit",
+    "zh": "把附件照片的背景换成浅灰色，保留前景物体原来的形状和颜色。",
+    "en": "Replace the attached photo's background with light gray, keeping the foreground object's original shape and colors.",
+    "attachments": [
+      {
+        "kind": "image",
+        "name": "product-photo.png"
+      }
+    ],
+    "labels": {
+      "task_type": "media",
+      "input_modality": "image",
+      "media_output": "image_edit"
+    },
+    "reason_zh": "需要使用原图进行编辑；附件元信息不提供其具体内容。",
+    "tags": [
+      "image-edit-positive",
+      "reference-required"
+    ]
+  },
+  {
+    "group_id": "M004",
+    "family_id": "M-background-edit",
+    "topic": "image_feedback_only",
+    "zh": "看看附件照片，告诉我换成浅灰背景是否更合适，先别改图片。",
+    "en": "Look at the attached photo and tell me whether a light gray background would work better. Do not edit the image yet.",
+    "attachments": [
+      {
+        "kind": "image",
+        "name": "product-photo.png"
+      }
+    ],
+    "labels": {
+      "input_modality": "image",
+      "task_type": "media"
+    },
+    "reason_zh": "需要看图给建议，但用户明确没有要求交付编辑后的图片。",
+    "tags": [
+      "image-understanding",
+      "image-edit-negative",
+      "explicit-negation"
+    ]
+  },
+  {
+    "group_id": "M005",
+    "topic": "ignored_image",
+    "zh": "附件图片是误加的，忽略它。只把这句话翻译成英文：会议改到明天上午十点。",
+    "en": "The attached image was added by mistake; ignore it. Translate only this Chinese sentence into English: 会议改到明天上午十点。",
+    "attachments": [
+      {
+        "kind": "image",
+        "name": "unrelated.png"
+      }
+    ],
+    "labels": {
+      "task_type": "translation"
+    },
+    "reason_zh": "用户要求忽略图片；输入含图片不等于任务需要视觉能力。两种语言版本都只做一句话翻译。",
+    "tags": [
+      "ignored-attachment",
+      "translation",
+      "image-negative"
+    ],
+    "family_id": "X-G065-M005"
+  },
+  {
+    "group_id": "M006",
+    "topic": "screenshot_translation",
+    "zh": "把这张截图里的日文菜单翻译成中文，按截图中的顺序列出来。",
+    "en": "Translate the Japanese menu in this screenshot into Chinese and list the items in their displayed order.",
+    "attachments": [
+      {
+        "kind": "image",
+        "name": "menu.png"
+      }
+    ],
+    "labels": {
+      "task_type": "translation",
+      "input_modality": "image"
+    },
+    "reason_zh": "目标是翻译图片中的文字；必须读取图片，但不生成或编辑图片。",
+    "tags": [
+      "ocr",
+      "translation",
+      "image-understanding"
+    ]
+  },
+  {
+    "group_id": "M007",
+    "topic": "short_music_loop",
+    "zh": "做一段八小节的无歌词电子音乐循环，节奏每分钟九十拍，交付音频。",
+    "en": "Create an eight-bar instrumental electronic music loop at 90 BPM and deliver the audio.",
+    "labels": {
+      "task_type": "media",
+      "media_output": "music"
+    },
+    "reason_zh": "需要音乐音频；明确节奏和短循环不等于复杂推理。",
+    "tags": [
+      "media",
+      "coverage-addition"
+    ]
+  },
+  {
+    "group_id": "M008",
+    "topic": "visual_comparison",
+    "zh": "比较这两张包装设计图的文字可读性、留白和色彩层次，再编辑第一张图改善留白，保持商品名称不变，交付修改后的图片。",
+    "en": "Compare the readability, spacing and color hierarchy of these two package designs. Then edit the first image to improve spacing while keeping the product name unchanged, and deliver the edited image.",
+    "attachments": [
+      {
+        "kind": "image",
+        "name": "package-a.png"
+      },
+      {
+        "kind": "image",
+        "name": "package-b.png"
+      }
+    ],
+    "labels": {
+      "difficulty": "standard",
+      "input_modality": "image",
+      "task_type": "media",
+      "media_output": "image_edit"
+    },
+    "reason_zh": "需要理解设计图片并交付编辑后的图像，而非只提供文字建议。",
+    "tags": [
+      "multiple-images",
+      "comparison",
+      "image-edit"
+    ]
+  },
+  {
+    "group_id": "M009",
+    "topic": "svg_code_not_generation",
+    "zh": "直接给我一个只有圆和三角形的 SVG 图标代码，别调用生图工具，也不用保存文件。",
+    "en": "Give me SVG code for an icon made only of a circle and a triangle. Do not call an image generator or save a file.",
+    "labels": {
+      "task_type": "coding"
+    },
+    "reason_zh": "交付的是内联 SVG 代码，不是生成式图片，也未要求操作项目文件。",
+    "tags": [
+      "svg",
+      "code-output",
+      "image-negative"
+    ],
+    "family_id": "X-C054-M009"
+  },
+  {
+    "group_id": "M010",
+    "topic": "chart_execution",
+    "zh": "用 Python 把下面三个月的销售额画成折线图，并实际运行：一月 12，二月 18，三月 15。",
+    "en": "Use Python to plot these three months of sales as a line chart and actually run it: January 12, February 18, March 15.",
+    "labels": {
+      "task_type": "data_analysis",
+      "run_commands": "yes"
+    },
+    "reason_zh": "统计图不是生成式图片；用户明确要求运行 Python。",
+    "tags": [
+      "chart-not-imagegen",
+      "explicit-execution",
+      "inline-data"
+    ]
+  },
+  {
+    "group_id": "M011",
+    "topic": "poster_and_copy",
+    "zh": "为虚构的读书节生成一张海报，另外写三条独立的社交媒体宣传文案。活动日期先用占位符。",
+    "en": "Generate a poster for a fictional reading festival and separately write three social media promotional posts. Use placeholders for the event dates.",
+    "labels": {
+      "task_type": "mixed",
+      "difficulty": "standard",
+      "media_output": "image_create"
+    },
+    "reason_zh": "图片与独立宣传文案是两类交付物；日期占位符不需要实时搜索。",
+    "tags": [
+      "multiple-deliverables",
+      "image-positive",
+      "writing"
+    ]
+  },
+  {
+    "group_id": "M012",
+    "family_id": "M-storyboard-text",
+    "topic": "storyboard_text",
+    "zh": "给一段十五秒咖啡广告写六个镜头的文字分镜，包含景别和镜头运动，先不制作视频。",
+    "en": "Write a six-shot textual storyboard for a fifteen-second coffee ad, including shot sizes and camera movement. Do not produce a video yet.",
+    "labels": {
+      "task_type": "writing",
+      "difficulty": "standard"
+    },
+    "reason_zh": "有镜头术语但只要求文字分镜，不需要视频生成服务。",
+    "tags": [
+      "video-negative",
+      "storyboard",
+      "explicit-negation"
+    ]
+  },
+  {
+    "group_id": "M013",
+    "topic": "text_to_video",
+    "zh": "用视频生成模型做一段八秒的镜头：纸船在浅水上缓缓漂过。无字幕、无音乐。",
+    "en": "Use a video generation model to create an eight-second shot of a paper boat drifting slowly over shallow water. No subtitles or music.",
+    "labels": {
+      "task_type": "media",
+      "media_output": "video_generate"
+    },
+    "reason_zh": "明确要求生成式视频；镜头要求单一且清晰，不因 GPU 成本提高难度标签。",
+    "tags": [
+      "video-generation-positive",
+      "bounded-request"
+    ]
+  },
+  {
+    "group_id": "M014",
+    "topic": "image_conditioned_video",
+    "zh": "用视频生成模型，以附件图片作为首帧，生成五秒钟缓慢推近的镜头，保持主体外观一致。",
+    "en": "Use a video generation model with the attached image as the first frame to generate a five-second slow push-in shot, preserving the subject’s appearance.",
+    "attachments": [
+      {
+        "kind": "image",
+        "name": "first-frame.png"
+      }
+    ],
+    "labels": {
+      "task_type": "media",
+      "input_modality": "image",
+      "media_output": "video_generate"
+    },
+    "reason_zh": "输入需要使用参考图片，输出是生成式视频，两者分别标注。",
+    "tags": [
+      "image-to-video",
+      "reference-required"
+    ]
+  },
+  {
+    "group_id": "M015",
+    "family_id": "X-C068-M016",
+    "topic": "video_trim_execution",
+    "zh": "先看看附件视频，再用 FFmpeg 实际裁出第 5 到第 9 秒，保留原音轨。",
+    "en": "First view the attached video, then actually use FFmpeg to extract seconds 5 through 9 while preserving the original audio track.",
+    "attachments": [
+      {
+        "kind": "video",
+        "name": "clip.mp4"
+      }
+    ],
+    "labels": {
+      "task_type": "media",
+      "input_modality": "video",
+      "media_output": "video_render",
+      "run_commands": "yes"
+    },
+    "reason_zh": "用户要求看视频并执行裁剪；使用现有素材渲染，不是生成式视频。",
+    "tags": [
+      "video-render",
+      "ffmpeg",
+      "explicit-execution"
+    ]
+  },
+  {
+    "group_id": "M016",
+    "family_id": "X-C068-M016",
+    "topic": "video_command_only",
+    "zh": "给我一条 FFmpeg 命令，把 clip.mp4 的第 5 到第 9 秒裁出来，保留音轨。只写命令，不执行。",
+    "en": "Give me an FFmpeg command to extract seconds 5 through 9 from clip.mp4 while preserving audio. Write the command only; do not execute it.",
+    "labels": {
+      "task_type": "coding"
+    },
+    "reason_zh": "交付命令文字即可，不需要查看视频、不执行、不产出视频文件。",
+    "tags": [
+      "command-not-execution",
+      "video-negative",
+      "explicit-negation"
+    ]
+  },
+  {
+    "group_id": "M017",
+    "topic": "slideshow_render",
+    "zh": "看看这三张照片，根据画面内容安排顺序，再用 FFmpeg 做成每张停留两秒的无声幻灯片视频。",
+    "en": "Look at these three photos, order them based on their visual content, and use FFmpeg to make a silent slideshow video that shows each for two seconds.",
+    "attachments": [
+      {
+        "kind": "image",
+        "name": "photo-1.jpg"
+      },
+      {
+        "kind": "image",
+        "name": "photo-2.jpg"
+      },
+      {
+        "kind": "image",
+        "name": "photo-3.jpg"
+      }
+    ],
+    "labels": {
+      "task_type": "media",
+      "difficulty": "standard",
+      "input_modality": "image",
+      "media_output": "video_render",
+      "run_commands": "yes"
+    },
+    "reason_zh": "看图排序并用命令组装已有图片为视频；不需要生成式视频模型。",
+    "tags": [
+      "slideshow",
+      "image-understanding",
+      "video-render"
+    ]
+  },
+  {
+    "group_id": "M018",
+    "topic": "programmatic_animation",
+    "zh": "主要交付可复用的 Python 源码：实现冒泡排序过程动画，并运行它，用数组 [4, 1, 3, 2] 导出一个 MP4 示例。",
+    "en": "The main deliverable is reusable Python source code that animates bubble sort. Run it on [4, 1, 3, 2] to export an example MP4.",
+    "labels": {
+      "task_type": "coding",
+      "difficulty": "standard",
+      "media_output": "video_render",
+      "run_commands": "yes"
+    },
+    "reason_zh": "编程实现是主要任务，最终还要求渲染视频；不需要视频生成 API。",
+    "tags": [
+      "programmatic-video",
+      "algorithm-animation",
+      "explicit-execution"
+    ]
+  },
+  {
+    "group_id": "M019",
+    "family_id": "M-storyboard-text",
+    "topic": "storyboard_revision",
+    "zh": "刚才那份咖啡广告分镜，把最后一个镜头改成杯口特写。继续只写文字，别生成图片或视频。",
+    "en": "In the coffee ad storyboard from earlier, change the final shot to a close-up of the cup rim. Continue with text only; do not generate images or video.",
+    "context_zh": "上一轮给出六镜头文字分镜；最后一镜是咖啡杯的远景。",
+    "context_en": "The previous turn supplied a six-shot textual storyboard; the last shot was a wide view of the coffee cup.",
+    "labels": {
+      "task_type": "writing"
+    },
+    "reason_zh": "前文已明确指代的是文字分镜，单处修改不触发媒体生成。",
+    "tags": [
+      "follow-up",
+      "video-negative",
+      "explicit-negation"
+    ]
+  },
+  {
+    "group_id": "M020",
+    "topic": "video_observation",
+    "zh": "看一下附件里的二十秒操作演示，按时间顺序列出操作者做了哪些动作，不需要重新剪辑。",
+    "en": "Watch the attached twenty-second operation demo and list the actions in chronological order. There is no need to re-edit it.",
+    "attachments": [
+      {
+        "kind": "video",
+        "name": "demo.mp4"
+      }
+    ],
+    "labels": {
+      "task_type": "media",
+      "input_modality": "video"
+    },
+    "reason_zh": "需要视频理解并输出文字观察，不产出新视频。",
+    "tags": [
+      "video-understanding",
+      "video-output-negative"
+    ]
+  },
+  {
+    "group_id": "M021",
+    "family_id": "M-music-deliverable",
+    "topic": "music_generation",
+    "zh": "生成一段三十秒的轻柔钢琴背景音乐，不要人声。",
+    "en": "Generate thirty seconds of gentle piano background music without vocals.",
+    "labels": {
+      "task_type": "media",
+      "media_output": "music"
+    },
+    "reason_zh": "明确交付音乐音频，与语音朗读分开。",
+    "tags": [
+      "music-positive",
+      "bounded-request"
+    ]
+  },
+  {
+    "group_id": "M022",
+    "family_id": "M-speech-deliverable",
+    "topic": "speech_synthesis",
+    "zh": "把“欢迎来到今天的读书会”合成为一段普通话语音，语速自然。",
+    "en": "Synthesize the Mandarin phrase '欢迎来到今天的读书会' as spoken audio at a natural pace.",
+    "labels": {
+      "task_type": "media",
+      "media_output": "speech"
+    },
+    "reason_zh": "只需要文字转语音，不需要音频输入或音乐生成。",
+    "tags": [
+      "tts",
+      "speech-positive"
+    ]
+  },
+  {
+    "group_id": "M023",
+    "topic": "translated_speech",
+    "zh": "把下面这句英文翻译成中文，再生成对应的中文朗读音频：Please keep the hallway clear.",
+    "en": "Translate the following English sentence into Chinese, then generate spoken Chinese audio: Please keep the hallway clear.",
+    "labels": {
+      "task_type": "media",
+      "difficulty": "standard",
+      "media_output": "speech"
+    },
+    "reason_zh": "翻译为最终语音交付服务，属于关联步骤，不需要音频输入。",
+    "tags": [
+      "translation-to-speech",
+      "speech-positive"
+    ]
+  },
+  {
+    "group_id": "M024",
+    "topic": "audio_transcription",
+    "zh": "把附件语音逐字转成文字；听不清的地方标出来，不要猜。",
+    "en": "Transcribe the attached voice recording verbatim. Mark unclear portions instead of guessing.",
+    "attachments": [
+      {
+        "kind": "audio",
+        "name": "voice-note.wav"
+      }
+    ],
+    "labels": {
+      "task_type": "media",
+      "input_modality": "audio"
+    },
+    "reason_zh": "需要音频理解，输出是转录文字，不是生成音频。",
+    "tags": [
+      "asr",
+      "audio-input",
+      "speech-output-negative"
+    ]
+  },
+  {
+    "group_id": "M025",
+    "topic": "audio_document_comparison",
+    "zh": "核对录音中的讲解与附件 PDF 讲义是否一致，列出明确矛盾之处，并标出录音时间点和 PDF 页码。",
+    "en": "Check whether the recorded explanation agrees with the attached PDF handout. List clear contradictions with recording timestamps and PDF page numbers.",
+    "attachments": [
+      {
+        "kind": "audio",
+        "name": "lesson.wav"
+      },
+      {
+        "kind": "document",
+        "name": "handout.pdf"
+      }
+    ],
+    "labels": {
+      "task_type": "media",
+      "difficulty": "standard",
+      "input_modality": "audio",
+      "document_read": "yes"
+    },
+    "reason_zh": "必须读文档并听音频；PDF 单独用 document_read 表达，不计为第二种非文本音视频模态。",
+    "tags": [
+      "cross-source-comparison",
+      "audio-input",
+      "document-input"
+    ]
+  },
+  {
+    "group_id": "M026",
+    "topic": "asr_explanation",
+    "zh": "语音转文字和文字转语音有什么区别？用两个例子解释，不要调用语音服务。",
+    "en": "What is the difference between speech-to-text and text-to-speech? Explain with two examples, without calling a speech service.",
+    "labels": {},
+    "reason_zh": "讨论音频技术不等于处理或生成音频。",
+    "tags": [
+      "audio-negative",
+      "concept-explanation",
+      "explicit-negation"
+    ]
+  },
+  {
+    "group_id": "M027",
+    "family_id": "M-music-deliverable",
+    "topic": "music_brief_only",
+    "zh": "写一份三十秒钢琴配乐的创作说明，给作曲师看，只要文字，不要音频。",
+    "en": "Write a creative brief for thirty seconds of piano accompaniment for a composer. Text only, no audio.",
+    "labels": {
+      "task_type": "writing"
+    },
+    "reason_zh": "交付创作说明而非音乐文件。",
+    "tags": [
+      "music-negative",
+      "brief-writing",
+      "explicit-negation"
+    ]
+  },
+  {
+    "group_id": "M028",
+    "topic": "cover_and_music",
+    "zh": "生成一张抽象风格的播客封面，再生成一段十秒无歌词开场音乐，分别交付图片和音频。",
+    "en": "Generate an abstract podcast cover and a ten-second instrumental opening track. Deliver the image and audio separately.",
+    "labels": {
+      "task_type": "media",
+      "difficulty": "standard",
+      "media_output": "mixed"
+    },
+    "reason_zh": "两种实际媒体输出都被请求，不能只标图片或音乐其中一个。",
+    "tags": [
+      "mixed-media-output",
+      "image-positive",
+      "music-positive"
+    ]
+  },
+  {
+    "group_id": "M029",
+    "topic": "structured_music_composition",
+    "zh": "创作并生成一分钟器乐音频，分引子、主题、收尾三段，在三段中保持同一个旋律动机，不要语音。",
+    "en": "Compose and generate a one-minute instrumental audio piece with an intro, theme and ending, preserving one melodic motif across the sections. No speech.",
+    "labels": {
+      "task_type": "media",
+      "difficulty": "standard",
+      "media_output": "music"
+    },
+    "reason_zh": "分段音乐需要保持旋律一致；这是音乐生成而非文字创作说明。",
+    "tags": [
+      "media",
+      "coverage-addition"
+    ]
+  },
+  {
+    "group_id": "M030",
+    "topic": "underspecified_video",
+    "zh": "帮我做个视频吧。",
+    "en": "Make a video for me.",
+    "labels": {
+      "task_type": "media",
+      "difficulty": "unclear",
+      "media_output": "unclear"
+    },
+    "reason_zh": "能判断需要视频交付，但题材、素材和生成还是剪辑方式均缺失，不能擅自选择生成式视频。",
+    "tags": [
+      "missing-scope",
+      "video-method-unknown"
+    ]
+  },
+  {
+    "group_id": "M031",
+    "topic": "missing_edit_reference",
+    "zh": "把我说的那张图修一下，具体怎么修我刚才发过。",
+    "en": "Fix the image I mentioned; I sent the specific changes earlier.",
+    "labels": {
+      "task_type": "media",
+      "difficulty": "unclear",
+      "input_modality": "image",
+      "media_output": "image_edit"
+    },
+    "reason_zh": "图片编辑意图明确，但本条没有可用前文或附件，编辑范围无法判断；需求存在不等于资源已齐。",
+    "tags": [
+      "missing-context",
+      "missing-attachment",
+      "image-edit-positive"
+    ]
+  },
+  {
+    "group_id": "M032",
+    "topic": "attachment_without_goal",
+    "zh": "这个呢？",
+    "en": "What about this?",
+    "attachments": [
+      {
+        "kind": "image",
+        "name": "attachment.png"
+      }
+    ],
+    "labels": {
+      "task_type": "unclear",
+      "difficulty": "unclear",
+      "web_search": "unclear",
+      "input_modality": "unclear",
+      "document_read": "unclear",
+      "media_output": "unclear",
+      "project_access": "unclear",
+      "run_commands": "unclear",
+      "browser_use": "unclear"
+    },
+    "reason_zh": "只有图片附件和模糊指代，无法确定要描述、修改、翻译还是另作处理。",
+    "tags": [
+      "ambiguous-goal",
+      "attachment-not-enough"
+    ],
+    "family_id": "X-G029-C041-M032"
+  },
+  {
+    "group_id": "M033",
+    "topic": "pdf_summary",
+    "zh": "读取附件 PDF，把报告的三个主要结论和各自依据整理出来，只用报告里的材料。",
+    "en": "Read the attached PDF and extract the report's three main conclusions and their supporting evidence. Use only the report's material.",
+    "attachments": [
+      {
+        "kind": "document",
+        "name": "report.pdf"
+      }
+    ],
+    "labels": {
+      "difficulty": "standard",
+      "document_read": "yes"
+    },
+    "reason_zh": "读取文档并概括已有内容；不需要实时检索，PDF 不自动等同图片输入。",
+    "tags": [
+      "document-summary",
+      "source-bounded",
+      "no-web"
+    ]
+  },
+  {
+    "group_id": "M034",
+    "topic": "spreadsheet_analysis",
+    "zh": "分析附件表格中两个季度的销售变化，按地区列出增幅，并指出缺失的数据，不要修改原文件。",
+    "en": "Analyze sales changes across the two quarters in the attached spreadsheet. Report growth by region and flag missing data without modifying the original file.",
+    "attachments": [
+      {
+        "kind": "document",
+        "name": "quarterly-sales.xlsx"
+      }
+    ],
+    "labels": {
+      "task_type": "data_analysis",
+      "difficulty": "standard",
+      "document_read": "yes"
+    },
+    "reason_zh": "需要读取表格做定量分析；没有明确要求命令执行或修改项目。",
+    "tags": [
+      "spreadsheet",
+      "read-only-document",
+      "quantitative-analysis"
+    ],
+    "family_id": "X-G033-M034"
+  },
+  {
+    "group_id": "M035",
+    "topic": "inline_table_analysis",
+    "zh": "下面已经贴出全部数据：A 组 10、20、30，B 组 20、20、20。比较两组均值和波动，不用打开任何文件。",
+    "en": "All the data is pasted here: group A has 10, 20, 30; group B has 20, 20, 20. Compare their means and variation without opening any files.",
+    "labels": {
+      "task_type": "data_analysis"
+    },
+    "reason_zh": "小规模内联数值已经齐全，不需要文档读取或终端执行。",
+    "tags": [
+      "inline-data",
+      "document-negative",
+      "self-contained"
+    ]
+  },
+  {
+    "group_id": "M036",
+    "topic": "multi_document_reconciliation",
+    "zh": "比较附件里的三个项目方案，找出预算口径、交付范围和时间线互相冲突的地方，并给出逐条来源，不做外部搜索。",
+    "en": "Compare the three attached project proposals. Identify conflicts in budget definitions, delivery scope, and timelines, citing the source for each finding. Do not search externally.",
+    "attachments": [
+      {
+        "kind": "document",
+        "name": "proposal-a.pdf"
+      },
+      {
+        "kind": "document",
+        "name": "proposal-b.pdf"
+      },
+      {
+        "kind": "document",
+        "name": "proposal-c.pdf"
+      }
+    ],
+    "labels": {
+      "difficulty": "complex",
+      "document_read": "yes"
+    },
+    "reason_zh": "多个来源与多种口径需要交叉核对；明确限定已有文档。",
+    "tags": [
+      "multi-document",
+      "cross-source-conflicts",
+      "no-web"
+    ]
+  },
+  {
+    "group_id": "M037",
+    "topic": "picture_and_speech",
+    "zh": "为虚构咖啡店生成一张菜单封面，并单独合成“欢迎光临”的普通话语音，两份文件都要。",
+    "en": "Generate a menu cover for a fictional cafe and separately synthesize Mandarin speech saying 欢迎光临. Deliver both files.",
+    "labels": {
+      "task_type": "media",
+      "difficulty": "standard",
+      "media_output": "mixed"
+    },
+    "reason_zh": "需要图像与语音两个实际媒体输出。",
+    "tags": [
+      "media",
+      "coverage-addition"
+    ]
+  },
+  {
+    "group_id": "M038",
+    "topic": "chart_followup",
+    "zh": "那就把这两组数换成堆叠柱状图，图例写清楚，不需要生成艺术图片。",
+    "en": "Then show those two series as a stacked bar chart with clear legend labels. There is no need to generate an artistic image.",
+    "context_zh": "上一轮用户提供一月、二月两个月的数据：线上销售为 10、15，门店销售为 20、18。",
+    "context_en": "The previous turn supplied January and February data: online sales were 10 and 15, and store sales were 20 and 18.",
+    "labels": {
+      "task_type": "data_analysis"
+    },
+    "reason_zh": "前文已提供数值；统计图输出不属于生成式媒体，无需猜测素材。",
+    "tags": [
+      "follow-up",
+      "chart-not-imagegen",
+      "available-context"
+    ]
+  },
+  {
+    "group_id": "M039",
+    "topic": "image_audio_match",
+    "zh": "听附件里的讲解，再看这张操作截图，告诉我讲解中提到的按钮在图上是否能找到。",
+    "en": "Listen to the attached explanation and inspect the screenshot. Tell me whether the button mentioned in the recording can be found in the image.",
+    "attachments": [
+      {
+        "kind": "audio",
+        "name": "explanation.wav"
+      },
+      {
+        "kind": "image",
+        "name": "operation.png"
+      }
+    ],
+    "labels": {
+      "task_type": "media",
+      "difficulty": "standard",
+      "input_modality": "mixed"
+    },
+    "reason_zh": "需要结合音频和图片两种非文本输入，输出仍是文字核对结果。",
+    "tags": [
+      "mixed-input",
+      "cross-modal-reference"
+    ]
+  },
+  {
+    "group_id": "M040",
+    "topic": "replace_soundtrack",
+    "zh": "看一下附件视频并听一下配乐，用 FFmpeg 把原音轨替换成这段音乐，结尾做一秒淡出，实际导出新视频。",
+    "en": "Watch the attached video and listen to the soundtrack. Use FFmpeg to replace the original audio with that music, add a one-second fade-out, and export the new video.",
+    "attachments": [
+      {
+        "kind": "video",
+        "name": "scene.mp4"
+      },
+      {
+        "kind": "audio",
+        "name": "soundtrack.wav"
+      }
+    ],
+    "labels": {
+      "task_type": "media",
+      "difficulty": "standard",
+      "input_modality": "mixed",
+      "media_output": "video_render",
+      "run_commands": "yes"
+    },
+    "reason_zh": "检查两种非文本素材后重新组装视频，没有要求新音乐生成。",
+    "tags": [
+      "mixed-input",
+      "video-render",
+      "existing-audio",
+      "ffmpeg"
+    ]
+  },
+  {
+    "group_id": "M041",
+    "topic": "research_then_image",
+    "zh": "先搜索今年公共图书馆海报的设计趋势，再据此生成一张虚构图书馆的活动海报，别照抄现有作品。",
+    "en": "First search for this year's public-library poster design trends, then generate an event poster for a fictional library based on them, without copying existing work.",
+    "labels": {
+      "task_type": "media",
+      "difficulty": "standard",
+      "web_search": "yes",
+      "media_output": "image_create"
+    },
+    "reason_zh": "检索是海报交付的辅助步骤；请求既需要搜索又需要生图。",
+    "tags": [
+      "search-plus-image",
+      "current-information"
+    ]
+  },
+  {
+    "group_id": "M042",
+    "topic": "public_page_reference",
+    "zh": "读一下 https://example.com/design-guide 上的公开设计说明，归纳里面对配色和字体的建议，不制作任何图片。",
+    "en": "Read the public design guide at https://example.com/design-guide and summarize its advice on colors and fonts. Do not create any images.",
+    "labels": {
+      "task_type": "research",
+      "web_search": "yes"
+    },
+    "reason_zh": "外部公开页面需要读取；没有交互式浏览器操作或图像生成要求。",
+    "tags": [
+      "public-web-retrieval",
+      "image-negative",
+      "synthetic-url"
+    ]
+  },
+  {
+    "group_id": "M043",
+    "topic": "browser_image_upload",
+    "zh": "在我已登录的网页编辑器里，把附件图片放到封面位置并保存为草稿，先不要发布。",
+    "en": "In the web editor where I am already signed in, place the attached image in the cover slot and save it as a draft. Do not publish it yet.",
+    "attachments": [
+      {
+        "kind": "image",
+        "name": "cover.png"
+      }
+    ],
+    "labels": {
+      "task_type": "automation",
+      "difficulty": "standard",
+      "browser_use": "yes"
+    },
+    "reason_zh": "要求网页表单操作和上传已有文件；无需理解图片内容或生成新图片，权限由程序另行控制。",
+    "tags": [
+      "browser-operation",
+      "upload-not-generation",
+      "no-publication"
+    ]
+  },
+  {
+    "group_id": "M044",
+    "topic": "browser_existing_download",
+    "zh": "在已经打开的剪辑网站里找到导出记录，把昨天已完成的 MP4 下载下来，不要重新渲染。",
+    "en": "In the editing website that is already open, find the export history and download yesterday's completed MP4. Do not render it again.",
+    "labels": {
+      "task_type": "automation",
+      "browser_use": "yes"
+    },
+    "reason_zh": "下载既有导出结果是浏览器操作，不需要新视频生成或渲染。",
+    "tags": [
+      "browser-operation",
+      "download-existing",
+      "video-output-negative"
+    ]
+  },
+  {
+    "group_id": "M045",
+    "family_id": "M-muse-request",
+    "topic": "named_agent_image",
+    "zh": "让 Muse 帮我生成一张极简的山峰壁纸，横向比例。",
+    "en": "Ask Muse to generate a minimalist mountain wallpaper in landscape orientation.",
+    "labels": {
+      "task_type": "media",
+      "media_output": "image_create",
+      "named_agent": "invoke"
+    },
+    "reason_zh": "明确点名执行器并请求生图；具体 Muse 连接和能力仍需运行时核实。",
+    "tags": [
+      "named-agent-invoke",
+      "image-positive"
+    ]
+  },
+  {
+    "group_id": "M046",
+    "family_id": "M-muse-request",
+    "topic": "named_agent_discussion",
+    "zh": "解释一下 Muse 的生图功能应该怎么用，先不要让它生成东西。",
+    "en": "Explain how Muse's image-generation feature should be used. Do not have it generate anything yet.",
+    "labels": {
+      "named_agent": "discuss"
+    },
+    "reason_zh": "问题讨论执行器的功能，没有委派或生图交付。",
+    "tags": [
+      "named-agent-discuss",
+      "image-negative",
+      "explicit-negation"
+    ]
+  },
+  {
+    "group_id": "M047",
+    "topic": "avoid_agent_speech",
+    "zh": "生成一句“请在门口等候”的中文语音，这次不要用 Muse，其他可用语音工具自动选。",
+    "en": "Generate spoken Chinese audio saying '请在门口等候'. Do not use Muse this time; automatically choose another available speech tool.",
+    "labels": {
+      "task_type": "media",
+      "media_output": "speech",
+      "named_agent": "avoid"
+    },
+    "reason_zh": "语音需求仍成立，同时排除指定执行器；不是看到 Muse 就调用。",
+    "tags": [
+      "named-agent-avoid",
+      "speech-positive"
+    ]
+  },
+  {
+    "group_id": "M048",
+    "topic": "quoted_media_instruction",
+    "zh": "概括下面这条需求的意思，不要照着执行。",
+    "en": "Summarize the meaning of the following request without carrying it out.",
+    "reference_zh": "生成三张产品海报，再做一个短视频。",
+    "reference_en": "Generate three product posters and then make a short video.",
+    "labels": {},
+    "reason_zh": "引用文本是待概括的资料，不是当前生成图片或视频的指令。",
+    "tags": [
+      "quoted-instruction",
+      "media-negative",
+      "source-boundary"
+    ]
+  },
+  {
+    "group_id": "M049",
+    "topic": "quoted_agent_translation",
+    "zh": "把引号里的英文翻译成中文，不要调用任何助手：\"Ask Muse to create the cover.\"",
+    "en": "Translate the quoted English into Chinese without invoking any assistant: \"Ask Muse to create the cover.\"",
+    "labels": {
+      "task_type": "translation"
+    },
+    "reason_zh": "Muse 只出现在待翻译文本中，既不是当前点名调用，也不需要生成封面。",
+    "tags": [
+      "quoted-agent",
+      "translation",
+      "named-agent-negative"
+    ],
+    "family_id": "X-G015-M049"
+  },
+  {
+    "group_id": "M050",
+    "topic": "unavailable_video_capability",
+    "zh": "我知道当前视频 API 的额度用完了，但我仍然要生成一段五秒的雨滴镜头；没有可用服务就告诉我原因，不要改成只写脚本。",
+    "en": "I know the current video API quota is exhausted, but I still want a generated five-second shot of raindrops. If no service is available, tell me why instead of delivering only a script.",
+    "labels": {
+      "task_type": "media",
+      "media_output": "video_generate"
+    },
+    "reason_zh": "能力需求和当前可用性分开；额度耗尽不能把视频生成需求标为无。",
+    "tags": [
+      "runtime-unavailability",
+      "no-silent-downgrade",
+      "video-generation-positive"
+    ]
+  },
+  {
+    "group_id": "M051",
+    "topic": "media_budget_status",
+    "zh": "检查本地已接入的视频服务还剩多少额度，只告诉我状态，这次不生成视频。",
+    "en": "Check the remaining quota of the locally connected video services and report their status. Do not generate a video this time.",
+    "labels": {
+      "task_type": "automation"
+    },
+    "reason_zh": "检查连接状态是应用操作请求；不自动要求网页搜索、终端或视频生成。具体读取接口由执行层选择。",
+    "tags": [
+      "status-query",
+      "video-negative",
+      "local-state"
+    ]
+  },
+  {
+    "group_id": "M052",
+    "topic": "multi_clip_timeline",
+    "zh": "不要用 Orion，改让 Nova 审看这四段访谈视频，用 FFmpeg 按话题重组为三分钟成片，保持人物发言前后逻辑，统一音量并生成字幕，实际导出 MP4。",
+    "en": "Do not use Orion; have Nova review these four interview clips and use FFmpeg to reorganize them by topic into a three-minute edit. Preserve the speakers' logical continuity, normalize volume, add subtitles, and export an MP4.",
+    "attachments": [
+      {
+        "kind": "video",
+        "name": "interview-1.mp4"
+      },
+      {
+        "kind": "video",
+        "name": "interview-2.mp4"
+      },
+      {
+        "kind": "video",
+        "name": "interview-3.mp4"
+      },
+      {
+        "kind": "video",
+        "name": "interview-4.mp4"
+      }
+    ],
+    "labels": {
+      "task_type": "media",
+      "difficulty": "complex",
+      "input_modality": "video",
+      "media_output": "video_render",
+      "run_commands": "yes",
+      "named_agent": "reassign"
+    },
+    "reason_zh": "跨多个片段理解并重组叙事，同时实际执行渲染，复杂度来自多源编辑判断。明确改派 Nova 并排除 Orion。",
+    "tags": [
+      "multi-clip",
+      "video-render",
+      "named-agent-reassign",
+      "narrative-reasoning"
+    ],
+    "candidate_executors": [
+      "Orion",
+      "Nova"
+    ]
+  },
+  {
+    "group_id": "M053",
+    "topic": "footage_and_music",
+    "zh": "用视频生成模型制作十秒钟的落叶镜头，再生成一段原创无歌词配乐，分别交付视频和音频，不用合成。",
+    "en": "Use a video generation model to make ten seconds of falling-leaf footage, and generate an original instrumental score. Deliver video and audio separately; do not combine them.",
+    "labels": {
+      "task_type": "media",
+      "difficulty": "standard",
+      "media_output": "mixed"
+    },
+    "reason_zh": "需要生成式视频及音乐两份输出；没有要求终端或剪辑合成。",
+    "tags": [
+      "media",
+      "coverage-addition"
+    ]
+  },
+  {
+    "group_id": "M054",
+    "topic": "ignored_document",
+    "zh": "不要读附件 PDF，我发错文件了。根据下面这句写一个更礼貌的版本：今天必须交。",
+    "en": "Do not read the attached PDF; I sent the wrong file. Rewrite this sentence more politely: It must be submitted today.",
+    "attachments": [
+      {
+        "kind": "document",
+        "name": "wrong-file.pdf"
+      }
+    ],
+    "labels": {
+      "task_type": "writing"
+    },
+    "reason_zh": "明确忽略的附件不能触发文档读取；任务只需改写现有文字。",
+    "tags": [
+      "ignored-attachment",
+      "document-negative",
+      "explicit-negation"
+    ]
+  },
+  {
+    "group_id": "M055",
+    "topic": "selective_modalities",
+    "zh": "音频不用听，只看这两张截图，比较按钮的位置有没有变化。",
+    "en": "Do not listen to the audio. Look only at the two screenshots and compare whether the button positions changed.",
+    "attachments": [
+      {
+        "kind": "audio",
+        "name": "unused.wav"
+      },
+      {
+        "kind": "image",
+        "name": "before.png"
+      },
+      {
+        "kind": "image",
+        "name": "after.png"
+      }
+    ],
+    "labels": {
+      "input_modality": "image",
+      "task_type": "media"
+    },
+    "reason_zh": "按任务需要选择输入模态，不按附件类型求并集。",
+    "tags": [
+      "ignored-audio",
+      "image-understanding",
+      "selective-input"
+    ]
+  },
+  {
+    "group_id": "M056",
+    "topic": "transcript_only_translation",
+    "zh": "视频不用打开，只把我贴出的字幕翻译成中文：Welcome back. Today we will discuss backups.",
+    "en": "Do not open the video. Translate only the pasted subtitles into Chinese: Welcome back. Today we will discuss backups.",
+    "attachments": [
+      {
+        "kind": "video",
+        "name": "lesson.mp4"
+      }
+    ],
+    "labels": {
+      "task_type": "translation"
+    },
+    "reason_zh": "字幕已作为文字提供，用户排除了视频读取。",
+    "tags": [
+      "ignored-video",
+      "text-sufficient",
+      "translation"
+    ]
+  },
+  {
+    "group_id": "M057",
+    "topic": "offline_research_document",
+    "zh": "根据附件两篇文章比较视频生成的两种技术路线，只引用附件，不联网；把各自局限写清楚。",
+    "en": "Compare the two video-generation approaches described in the attached articles. Cite only the attachments, stay offline, and explain each approach's limitations.",
+    "attachments": [
+      {
+        "kind": "document",
+        "name": "approach-a.pdf"
+      },
+      {
+        "kind": "document",
+        "name": "approach-b.pdf"
+      }
+    ],
+    "labels": {
+      "difficulty": "standard",
+      "document_read": "yes"
+    },
+    "reason_zh": "围绕所给资料做比较解释，不是实时外部研究，也没有要求生成视频。",
+    "tags": [
+      "document-comparison",
+      "video-negative",
+      "explicit-no-web"
+    ]
+  },
+  {
+    "group_id": "M058",
+    "topic": "executor_capability_question",
+    "zh": "Nova 能生成视频，是因为它自己就是视频模型，还是因为它接了工具？只解释这两个概念的区别，不要调用 Nova。",
+    "en": "If Nova can generate video, does that mean it is a video model itself, or that it has a connected tool? Explain the distinction only; do not invoke Nova.",
+    "labels": {
+      "named_agent": "discuss"
+    },
+    "reason_zh": "讨论执行器与工具的区别，不假设 Nova 的真实能力，也不执行视频任务。",
+    "tags": [
+      "named-agent-discuss",
+      "capability-vs-tool",
+      "video-negative"
+    ]
+  },
+  {
+    "group_id": "M059",
+    "topic": "screenshot_to_project_fix",
+    "zh": "按附件设计截图修改当前项目的播放器控制栏，保留键盘操作，再实际运行已有的界面测试。",
+    "en": "Update the current project's player controls to match the attached design screenshot, preserve keyboard operation, and actually run the existing UI tests.",
+    "attachments": [
+      {
+        "kind": "image",
+        "name": "player-controls.png"
+      }
+    ],
+    "labels": {
+      "task_type": "coding",
+      "difficulty": "standard",
+      "input_modality": "image",
+      "project_access": "write",
+      "run_commands": "yes"
+    },
+    "reason_zh": "根据截图修改项目并测试；播放器属于软件界面，不代表生成视频。",
+    "tags": [
+      "image-to-code",
+      "project-write",
+      "explicit-test",
+      "video-negative"
+    ]
+  },
+  {
+    "group_id": "M060",
+    "topic": "image_feature_bug_not_image_task",
+    "zh": "当前项目的“生成图片”按钮点击后没有发送请求。检查点击处理函数和接口绑定并修好，不要真的调用收费生图接口。",
+    "en": "The current project's Generate Image button sends no request when clicked. Inspect and fix the click handler and API binding, without actually calling the paid image-generation endpoint.",
+    "labels": {
+      "task_type": "coding",
+      "difficulty": "standard",
+      "project_access": "write"
+    },
+    "reason_zh": "修复生图功能的代码不等于执行生图；用户明确排除真实生成调用。",
+    "tags": [
+      "feature-name-confound",
+      "image-negative",
+      "project-write",
+      "explicit-negation"
+    ]
+  }
+]

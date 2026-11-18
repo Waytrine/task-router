@@ -1,0 +1,5 @@
+# Evaluation and training (training/evaluate.py run, the Colab notebook).
+# The tests and training/build_dataset.py need only the Python standard library;
+# PyYAML is optional and enables the extra OpenAPI checks in tests/test_api.py.
+# The inference service has its own pins in service/requirements.txt.
+laya @ git+https://github.com/NandhaKishorM/laya.git@b9fe351ce81e2d974bca2bf219c1e4030c0a05ea

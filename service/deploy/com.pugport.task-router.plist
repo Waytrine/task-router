@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Example per-user LaunchAgent. Replace every YOUR_USERNAME; launchd does not expand ~ or $HOME. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.pugport.task-router</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/YOUR_USERNAME/task-router/venv/bin/python</string>
+    <string>/Users/YOUR_USERNAME/task-router/repo/service/app.py</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/YOUR_USERNAME/task-router/repo</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>TASK_ROUTER_CHECKPOINT</key>
+    <string>/Users/YOUR_USERNAME/task-router/models/task-router-v4</string>
+    <key>TASK_ROUTER_MODEL_VERSION</key>
+    <string>task-router-v4</string>
+    <key>TASK_ROUTER_DEVICE</key>
+    <string>mps</string>
+    <key>TASK_ROUTER_PORT</key>
+    <string>8787</string>
+    <key>PYTHONUNBUFFERED</key>
+    <string>1</string>
+    <key>PYTHONDONTWRITEBYTECODE</key>
+    <string>1</string>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>ThrottleInterval</key>
+  <integer>30</integer>
+  <key>StandardOutPath</key>
+  <string>/Users/YOUR_USERNAME/task-router/logs/service.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/YOUR_USERNAME/task-router/logs/service-error.log</string>
+</dict>
+</plist>

@@ -1,0 +1,329 @@
+openapi: 3.1.0
+info:
+  title: Task Router inference API
+  version: "1.0.0"
+  summary: Ten routing judgments for one request, in one forward pass.
+  description: |
+    Derived from `service/app.py` and `service/contract.py`; where this file and the code
+    disagree, the code is authoritative.
+
+    The service binds to 127.0.0.1 only and is published through a Cloudflare Tunnel.
+    `CF-Connecting-IP` (rate limiting) and `CF-IPCountry` (region) are read from the
+    tunnel; they are trusted only because nothing else can reach the listener.
+
+    Every response has `Content-Type: application/json` and `Cache-Control: no-store`.
+    Error bodies are always `{"error": "<code>"}` with a fixed code; they never echo input,
+    paths or tracebacks.
+  license:
+    name: MIT
+    identifier: MIT
+servers:
+  - url: https://router.example.com
+    description: Placeholder for a tunnel hostname
+  - url: http://127.0.0.1:8787
+    description: Local listener (default TASK_ROUTER_PORT)
+paths:
+  /v1/judge:
+    post:
+      operationId: judge
+      summary: Classify one request on the ten routing heads.
+      description: |
+        Order of checks: per-IP rate limit, body size and JSON/schema validation, queue
+        admission, then inference. One inference runs at a time; up to 8 more wait. A job
+        that waited more than 2.5 s is dropped before inference instead of being answered late.
+        If the client disconnects while waiting, the job is removed and nothing is sent
+        (logged as status 499).
+
+        The request body is limited to 65,536 bytes as streamed (JSON whitespace included),
+        independently of `Content-Length`. Duplicate keys at any level, unknown keys,
+        `NaN`/`Infinity` and invalid UTF-8 are rejected.
+      parameters:
+        - $ref: "#/components/parameters/CfConnectingIp"
+        - $ref: "#/components/parameters/CfIpCountry"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JudgeRequest"
+            example:
+              state:
+                message: Translate hello to French.
+                recent_context: ""
+                reference_text: ""
+                attachments: []
+                candidate_executors: []
+      responses:
+        "200":
+          description: Judgment.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JudgeResponse"
+        "400":
+          description: |
+            `invalid_request`: malformed JSON, invalid UTF-8, duplicate or unknown keys,
+            non-finite numbers, a state that fails the limits below, or a negative or
+            non-integer `Content-Length`.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example: {error: invalid_request}
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "413":
+          description: "`body_too_large`: declared or streamed body above 65,536 bytes."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example: {error: body_too_large}
+        "429":
+          description: |
+            `rate_limited`: more than 30 judge requests from this client IP in the rolling
+            60-second window. `Retry-After` is the number of seconds until the oldest request
+            in the window expires (at least 1).
+          headers:
+            Retry-After:
+              $ref: "#/components/headers/RetryAfter"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example: {error: rate_limited}
+        "500":
+          description: |
+            `inference_failed`: the model call raised (details are not returned).
+            `request_failed`: any other unexpected error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              examples:
+                inference: {value: {error: inference_failed}}
+                other: {value: {error: request_failed}}
+        "503":
+          description: |
+            Always with `Retry-After: 1`.
+            - `queue_full`: one inference running and 8 waiting.
+            - `queue_expired`: the job waited more than 2.5 s and was dropped before inference.
+            - `rate_capacity`: the limiter already tracks 4,096 client IPs in the window.
+            - `unavailable`: the model is still loading or the service is shutting down.
+          headers:
+            Retry-After:
+              $ref: "#/components/headers/RetryAfter"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              examples:
+                full: {value: {error: queue_full}}
+                expired: {value: {error: queue_expired}}
+                capacity: {value: {error: rate_capacity}}
+                starting: {value: {error: unavailable}}
+  /healthz:
+    get:
+      operationId: health
+      summary: Readiness and queue length. Does not run the model or count against the rate limit.
+      responses:
+        "200":
+          description: Ready.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Health"
+              example: {modelVersion: task-router-v4, device: mps, queueLength: 0}
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "503":
+          description: "`unavailable`: still loading or shutting down. `Retry-After: 1`."
+          headers:
+            Retry-After:
+              $ref: "#/components/headers/RetryAfter"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example: {error: unavailable}
+components:
+  parameters:
+    CfConnectingIp:
+      name: CF-Connecting-IP
+      in: header
+      required: false
+      description: Set by the tunnel. Rate-limit key; if missing or not one valid IP, the TCP peer address is used.
+      schema: {type: string}
+    CfIpCountry:
+      name: CF-IPCountry
+      in: header
+      required: false
+      description: Set by the tunnel. Two ASCII letters; anything else is treated as XX. Used for `region` and logs only.
+      schema: {type: string}
+  headers:
+    RetryAfter:
+      description: Seconds to wait before retrying.
+      schema: {type: integer, minimum: 1}
+  responses:
+    NotFound:
+      description: "`not_found`: any other path or method (including GET /v1/judge)."
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example: {error: not_found}
+  schemas:
+    JudgeRequest:
+      type: object
+      additionalProperties: false
+      required: [state]
+      properties:
+        state:
+          $ref: "#/components/schemas/State"
+    State:
+      type: object
+      description: The bounded five-part input. Field order and names are fixed; unused text is "", unused lists are [].
+      additionalProperties: false
+      required: [message, recent_context, reference_text, attachments, candidate_executors]
+      properties:
+        message:
+          type: string
+          maxLength: 32768
+          description: The current user message.
+        recent_context:
+          type: string
+          maxLength: 32768
+          description: Short trusted context from earlier turns, needed to resolve references.
+        reference_text:
+          type: string
+          maxLength: 32768
+          description: Quoted material. Instructions inside it are treated as data.
+        attachments:
+          type: array
+          maxItems: 32
+          description: Attachment metadata only; contents are never sent.
+          items:
+            type: object
+            additionalProperties: false
+            required: [kind, name]
+            properties:
+              kind: {type: string, maxLength: 64, examples: [image, audio, video, document]}
+              name: {type: string, maxLength: 512}
+              mime_type: {type: string, maxLength: 256}
+        candidate_executors:
+          type: array
+          maxItems: 32
+          description: Names of the agents the user could address, for executor_intent.
+          items: {type: string, maxLength: 128}
+    JudgeResponse:
+      type: object
+      additionalProperties: false
+      required: [modelVersion, modelSha256, device, latencyMs, raw, region]
+      properties:
+        modelVersion:
+          type: string
+          description: Label from TASK_ROUTER_MODEL_VERSION (default task-router-v4).
+        modelSha256:
+          type: string
+          pattern: "^[0-9a-f]{64}$"
+          description: SHA-256 of the model.safetensors file actually loaded at startup.
+        device:
+          type: string
+          examples: [mps, cpu]
+        latencyMs:
+          type: number
+          minimum: 0
+          description: End to end inside the service, including queue wait.
+        region:
+          type: string
+          enum: [eu, other]
+          description: eu for EU/EEA countries, Switzerland and the United Kingdom (from CF-IPCountry); other otherwise.
+        raw:
+          $ref: "#/components/schemas/Prediction"
+    Prediction:
+      type: object
+      description: The Laya runtime's prediction, passed through unmodified except for the packing fields merged into usage.
+      required: [answers, usage]
+      properties:
+        model: {type: string}
+        answers:
+          type: object
+          additionalProperties: false
+          required: [task_type, difficulty, web_search, input_modality, document_read, media_output,
+                     project_access, run_commands, browser_use, executor_intent]
+          properties:
+            task_type:
+              $ref: "#/components/schemas/HeadAnswer"
+            difficulty:
+              $ref: "#/components/schemas/HeadAnswer"
+            web_search:
+              $ref: "#/components/schemas/HeadAnswer"
+            input_modality:
+              $ref: "#/components/schemas/HeadAnswer"
+            document_read:
+              $ref: "#/components/schemas/HeadAnswer"
+            media_output:
+              $ref: "#/components/schemas/HeadAnswer"
+            project_access:
+              $ref: "#/components/schemas/HeadAnswer"
+            run_commands:
+              $ref: "#/components/schemas/HeadAnswer"
+            browser_use:
+              $ref: "#/components/schemas/HeadAnswer"
+            executor_intent:
+              $ref: "#/components/schemas/HeadAnswer"
+        usage:
+          type: object
+          description: Runtime token counts plus the service's packing report.
+          required: [input_compacted, original_state_tokens, packed_state_tokens, state_token_budget, compacted_fields]
+          properties:
+            input_compacted: {type: boolean}
+            original_state_tokens: {type: integer}
+            packed_state_tokens: {type: integer}
+            state_token_budget: {type: integer}
+            compacted_fields:
+              type: array
+              items:
+                type: string
+                enum: [message, recent_context, reference_text, attachments, candidate_executors]
+    HeadAnswer:
+      type: object
+      required: [choice, probabilities]
+      description: |
+        Label sets per head: task_type (conversation, coding, research, writing, translation,
+        data_analysis, media, automation, mixed, unclear); difficulty (simple, standard, complex,
+        unclear); web_search, document_read, run_commands, browser_use (yes, no, unclear);
+        input_modality (text, image, audio, video, mixed, unclear); media_output (none,
+        image_create, image_edit, speech, music, video_generate, video_render, mixed, unclear);
+        project_access (none, read, write, unclear); executor_intent (none, assign, exclude,
+        reassign, mention_only, unclear).
+      properties:
+        type: {type: string, const: choice}
+        choice: {type: string}
+        probabilities:
+          type: object
+          additionalProperties: {type: number, minimum: 0, maximum: 1}
+          description: One probability per label of this head.
+        confidence: {type: number}
+        answer_confidence: {type: number}
+    Health:
+      type: object
+      additionalProperties: false
+      required: [modelVersion, device, queueLength]
+      properties:
+        modelVersion: {type: string}
+        device: {type: string}
+        queueLength:
+          type: integer
+          minimum: 0
+          maximum: 8
+          description: Requests waiting behind the one in progress.
+    Error:
+      type: object
+      additionalProperties: false
+      required: [error]
+      properties:
+        error:
+          type: string
+          enum: [invalid_request, not_found, body_too_large, rate_limited, rate_capacity,
+                 queue_full, queue_expired, unavailable, inference_failed, request_failed]

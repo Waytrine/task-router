@@ -1,0 +1,16 @@
+{
+  "dataset_version": "pugport-routing-synthetic-v1",
+  "created_date": "2026-10-26",
+  "origin": "Assistant-authored synthetic examples with agent review; not human-annotated production traffic",
+  "languages": ["zh", "en"],
+  "laya_source_commit": "b9fe351ce81e2d974bca2bf219c1e4030c0a05ea",
+  "laya_source_url": "https://github.com/NandhaKishorM/laya/tree/b9fe351ce81e2d974bca2bf219c1e4030c0a05ea",
+  "base_model": "convaiinnovations/laya-multilingual",
+  "base_model_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+  "training_performed": false,
+  "inference_performed": false,
+  "intended_use": "Initial offline baseline and fine-tuning experiments; not proof of production routing accuracy",
+  "private_logs_used": false,
+  "attachments": "Metadata only; no actual image, audio, video or document content",
+  "upstream_license": "Apache-2.0; upstream is referenced, not redistributed"
+}

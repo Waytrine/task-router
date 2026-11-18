@@ -1,0 +1,61 @@
+{
+  "dataset_version": "pugport-routing-synthetic-v1",
+  "note": "Later-round files built on top of the v1 splits. Hashes are of the exact published bytes. All rows are synthetic. There is zero family, group or exact-message overlap with validation, calibration or test, but rows added in rounds 2-4 were written after earlier errors (including test-split errors) had been inspected, and some are close template neighbours of evaluation rows. See eval/README.md.",
+  "files": {
+    "data/train_v2.jsonl": {
+      "rows": 400,
+      "groups": 200,
+      "families": 182,
+      "languages": {
+        "zh": 200,
+        "en": 200
+      },
+      "sha256": "2801ec928b8e18ab52c4f88b12e56270e06a8ab621fe31be473e1e02e4307c69",
+      "description": "Round 2 training set: the 240 v1 training rows plus 160 synthetic rows (V2_*)."
+    },
+    "data/train_v3.jsonl": {
+      "rows": 520,
+      "groups": 260,
+      "families": 242,
+      "languages": {
+        "zh": 260,
+        "en": 260
+      },
+      "sha256": "1b249f1551de4561b7675bbecef3f9be5652a22a2c281a2e74057b36f2d42d86",
+      "description": "Round 3 training set: train_v2 plus 120 synthetic rows (V3_*)."
+    },
+    "data/train_v4.jsonl": {
+      "rows": 720,
+      "groups": 360,
+      "families": 342,
+      "languages": {
+        "zh": 360,
+        "en": 360
+      },
+      "sha256": "1330a2e0064af47d3ba77f17d44befb1b702d4832846569547220d067b095686",
+      "description": "Round 4 training set: train_v3 plus 200 synthetic rows (V4_*)."
+    },
+    "data/calibration_v4.jsonl": {
+      "rows": 60,
+      "groups": 30,
+      "families": 24,
+      "languages": {
+        "zh": 30,
+        "en": 30
+      },
+      "sha256": "4311db0c20737bb0017765cdac44df69dee59da06f1df7f8270ea57609b590fa",
+      "description": "Calibration set used to fit the v4 temperature: the 40 v1 calibration rows plus 20 synthetic rows (CAL_*)."
+    },
+    "data/blind_test_v4.jsonl": {
+      "rows": 20,
+      "groups": 10,
+      "families": 10,
+      "languages": {
+        "zh": 10,
+        "en": 10
+      },
+      "sha256": "989f6fe7a9393cea1a31b89c100bbfdba3795571461d3c70cc7a21241f3ea0bf",
+      "description": "20-row synthetic set (10 bilingual scenarios) evaluated once with v4; has template neighbours in train_v4, so it is a regression check, not an independent test."
+    }
+  }
+}

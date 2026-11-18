@@ -1,0 +1,6 @@
+* text=auto eol=lf
+# The dataset files are published byte for byte (CRLF line endings) so that the
+# SHA-256 values in data/manifest.json and data/rounds.json stay valid on every OS.
+data/*.jsonl -text
+data/*.json -text
+data/source/* -text

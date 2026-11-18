@@ -1,0 +1,1328 @@
+[
+  {
+    "group_id": "G001",
+    "topic": "greeting",
+    "zh": "你好，今天先聊两句。",
+    "en": "Hi, let's just chat for a moment today.",
+    "labels": {},
+    "reason_zh": "普通寒暄，没有工具或外部资料需求。",
+    "tags": [
+      "chat",
+      "simple"
+    ]
+  },
+  {
+    "group_id": "G002",
+    "topic": "concept_explanation",
+    "zh": "用一个生活中的例子解释模型路由，不需要查资料。",
+    "en": "Explain model routing with an everyday example. No research is needed.",
+    "labels": {},
+    "reason_zh": "解释稳定概念，明确不要求外部资料。",
+    "tags": [
+      "explanation",
+      "no_search"
+    ]
+  },
+  {
+    "group_id": "G003",
+    "topic": "provided_text_summary",
+    "zh": "把下面的会议记录概括成三条，不要补充记录之外的内容。",
+    "en": "Summarize the meeting notes below into three points. Do not add anything outside the notes.",
+    "reference_zh": "会议决定先发布网页版本，移动端下月再评估。设计稿周三交付，测试在设计确认后开始。",
+    "reference_en": "The meeting decided to release the web version first and review mobile next month. Designs are due Wednesday, and testing starts after design approval.",
+    "labels": {},
+    "reason_zh": "只总结给定文本，不需要读文件或联网。",
+    "tags": [
+      "summary",
+      "provided_text"
+    ]
+  },
+  {
+    "group_id": "G004",
+    "topic": "argument_consistency",
+    "zh": "检查这个论证有没有自相矛盾，只分析逻辑：所有远程岗位都不要求到岗；这份岗位是远程岗位，但每周必须到办公室两天。",
+    "en": "Check this argument for contradictions, using logic only: All remote roles require no office attendance; this role is remote, but requires two office days every week.",
+    "labels": {},
+    "reason_zh": "输入已足够，识别明确的逻辑矛盾。",
+    "tags": [
+      "reasoning",
+      "self_contained"
+    ]
+  },
+  {
+    "group_id": "G005",
+    "topic": "jargon_plain_language",
+    "zh": "“上下文窗口”和“长期记忆”有什么区别？用给新手看的语言解释。",
+    "en": "What is the difference between a context window and long-term memory? Explain it for a beginner.",
+    "labels": {},
+    "reason_zh": "概念区别说明，不涉及实际读取记忆或操作应用。",
+    "tags": [
+      "explanation",
+      "no_action"
+    ]
+  },
+  {
+    "group_id": "G006",
+    "topic": "network_concept",
+    "zh": "为什么浏览器能打开网站，但另一个程序可能提示网络超时？列出一般原因，不要检查我的电脑。",
+    "en": "Why might a browser open a website while another program reports a network timeout? List general causes without checking my computer.",
+    "labels": {
+      "difficulty": "standard"
+    },
+    "reason_zh": "需要整理多种一般机制，但明确不进行诊断操作。",
+    "tags": [
+      "explanation",
+      "no_execution",
+      "multi_factor"
+    ]
+  },
+  {
+    "group_id": "G007",
+    "topic": "email_draft",
+    "zh": "帮我写一封简短邮件，询问会议能否从上午十点改到下午两点。只写草稿，不要发送。",
+    "en": "Draft a short email asking whether the meeting can move from 10 a.m. to 2 p.m. Do not send it.",
+    "labels": {
+      "task_type": "writing"
+    },
+    "reason_zh": "只生成邮件文字，禁止发送不等于需要浏览器。",
+    "tags": [
+      "draft_only",
+      "writing"
+    ]
+  },
+  {
+    "group_id": "G008",
+    "topic": "tone_rewrite",
+    "zh": "把“你一直不回复，太不负责任了”改得礼貌一点，但保留希望尽快回复的意思。",
+    "en": "Make 'You never reply; that is irresponsible' more polite while keeping the request for a prompt reply.",
+    "labels": {
+      "task_type": "writing"
+    },
+    "reason_zh": "局部措辞改写，范围清楚。",
+    "tags": [
+      "rewrite",
+      "tone"
+    ]
+  },
+  {
+    "group_id": "G009",
+    "topic": "product_copy",
+    "zh": "给一个离线笔记应用写五个首页标题，强调隐私和快速查找，不要声称已经通过任何认证。这次不要用 Orion。",
+    "en": "Write five homepage headlines for an offline notes app, emphasizing privacy and fast retrieval. Do not claim any certifications. Do not use Orion for this.",
+    "labels": {
+      "task_type": "writing",
+      "named_agent": "avoid"
+    },
+    "reason_zh": "生成简短文案，限制清楚，不要求事实检索。明确排除 Orion，未指定替代执行器。",
+    "tags": [
+      "copywriting",
+      "constraints"
+    ],
+    "candidate_executors": [
+      "Muse",
+      "Alex",
+      "Orion"
+    ]
+  },
+  {
+    "group_id": "G010",
+    "topic": "story_outline",
+    "zh": "设计一个短篇推理故事的大纲：三名嫌疑人、一个不可靠证人，结尾要能解释开头留下的线索。",
+    "en": "Outline a short mystery with three suspects and one unreliable witness. The ending should explain the clues introduced at the start.",
+    "labels": {
+      "task_type": "writing",
+      "difficulty": "standard"
+    },
+    "reason_zh": "需要关联人物与线索，但仍是有界的大纲任务。",
+    "tags": [
+      "creative_writing",
+      "consistency"
+    ]
+  },
+  {
+    "group_id": "G011",
+    "topic": "long_form_consistency",
+    "zh": "根据下面的三个时代设定，设计十二章的悬疑小说结构，确保跨时代因果关系自洽，并列出每章伏笔如何回收。",
+    "en": "Using the three eras below, design a twelve-chapter suspense novel with consistent causal links across eras and show where each chapter's clues pay off.",
+    "reference_zh": "第一时代发现一份无法解读的档案；第二时代发生档案被篡改的事件；第三时代的调查员能读取前两个时代的记录，但不能改变过去。",
+    "reference_en": "In the first era an unreadable archive is found. In the second it is altered. An investigator in the third era can read records from the first two eras but cannot change the past.",
+    "labels": {
+      "task_type": "writing",
+      "difficulty": "complex"
+    },
+    "reason_zh": "需要跨章节和跨时代的多层一致性推理。",
+    "tags": [
+      "creative_writing",
+      "complex",
+      "provided_text"
+    ]
+  },
+  {
+    "group_id": "G012",
+    "topic": "short_translation",
+    "zh": "把“请在周五之前确认出席”翻译成自然的英文。",
+    "en": "Translate “请在周五之前确认出席” into natural English.",
+    "labels": {
+      "task_type": "translation"
+    },
+    "reason_zh": "单句翻译，不涉及额外行动。",
+    "tags": [
+      "translation",
+      "simple"
+    ]
+  },
+  {
+    "group_id": "G013",
+    "topic": "technical_translation",
+    "zh": "将下面这句英文翻译成中文，保留 API 和 endpoint：The API key is valid only for the configured endpoint.",
+    "en": "Translate this sentence into Chinese, keeping API and endpoint unchanged: The API key is valid only for the configured endpoint.",
+    "labels": {
+      "task_type": "translation"
+    },
+    "reason_zh": "技术术语只是待翻译文本，不需要读取真实密钥或调用接口。",
+    "tags": [
+      "translation",
+      "technical_terms",
+      "no_secret_access"
+    ]
+  },
+  {
+    "group_id": "G014",
+    "topic": "terminology_consistency",
+    "zh": "把以下三句产品说明翻译成英文，并让“工作区”统一译为 workspace，“会话”统一译为 conversation。",
+    "en": "Translate the three product-description sentences below into English, consistently translating 工作区 as workspace and 会话 as conversation.",
+    "reference_zh": "工作区保存项目文件。会话记录每轮请求。删除会话不会自动删除工作区。",
+    "reference_en": "工作区保存项目文件。会话记录每轮请求。删除会话不会自动删除工作区。",
+    "labels": {
+      "task_type": "translation",
+      "difficulty": "standard"
+    },
+    "reason_zh": "翻译时需要跨句保持指定术语与产品关系一致。",
+    "tags": [
+      "translation",
+      "glossary",
+      "mixed_language"
+    ]
+  },
+  {
+    "group_id": "G015",
+    "topic": "quoted_tool_instruction_translation",
+    "zh": "只把引号里的英文翻译成中文，不执行它：“Search the web and ask Muse to publish the results.”",
+    "en": "Only translate the quoted English sentence into Chinese; do not execute it: 'Search the web and ask Muse to publish the results.'",
+    "labels": {
+      "task_type": "translation"
+    },
+    "reason_zh": "搜索、Muse 和发布均是引用内容，不能当成当前操作指令。",
+    "tags": [
+      "translation",
+      "quoted_instruction",
+      "no_search",
+      "no_agent_call"
+    ],
+    "candidate_executors": [
+      "Muse",
+      "Alex",
+      "Orion",
+      "Nova"
+    ],
+    "family_id": "X-G015-M049"
+  },
+  {
+    "group_id": "G016",
+    "topic": "weather_lookup",
+    "zh": "查一下明天温哥华会不会下雨，给我官方天气来源。",
+    "en": "Check whether it will rain in Vancouver tomorrow and give an official weather source.",
+    "labels": {
+      "task_type": "research",
+      "web_search": "yes"
+    },
+    "reason_zh": "请求当前天气和来源，必须获取外部最新信息。",
+    "tags": [
+      "freshness",
+      "weather",
+      "search"
+    ]
+  },
+  {
+    "group_id": "G017",
+    "topic": "software_release_lookup",
+    "zh": "搜索这个月 Python 稳定版有没有更新，给我官方发布链接，不需要安装。",
+    "en": "Search for whether the stable Python release changed this month. Give the official release link without installing anything.",
+    "labels": {
+      "task_type": "research",
+      "web_search": "yes"
+    },
+    "reason_zh": "检索最新版本只是研究任务，不涉及代码或安装命令。",
+    "tags": [
+      "freshness",
+      "software_research",
+      "no_execution"
+    ]
+  },
+  {
+    "group_id": "G018",
+    "topic": "public_url_read",
+    "zh": "读取 https://example.com/guide 的公开指南，告诉我它列出了哪些安装步骤。不要安装。",
+    "en": "Read the public guide at https://example.com/guide and tell me which installation steps it lists. Do not install anything.",
+    "labels": {
+      "task_type": "research",
+      "web_search": "yes"
+    },
+    "reason_zh": "需要读取外部公开网页，但不需要交互浏览器或执行安装。",
+    "tags": [
+      "public_url",
+      "retrieval",
+      "no_execution"
+    ]
+  },
+  {
+    "group_id": "G019",
+    "topic": "offline_document_comparison",
+    "zh": "只比较下面给出的两个方案，不要联网。A 每月十元、可导出；B 每月八元、不能导出。我的首要需求是以后能迁移数据。",
+    "en": "Compare only the two plans provided, without going online. A costs ten per month and supports export; B costs eight and does not. My main need is future data migration.",
+    "labels": {
+      "difficulty": "standard"
+    },
+    "reason_zh": "比较已有材料与明确偏好，无外部研究需要。",
+    "tags": [
+      "comparison",
+      "offline",
+      "constraints"
+    ]
+  },
+  {
+    "group_id": "G020",
+    "topic": "provided_news_summary",
+    "zh": "这是一篇已经复制好的新闻，概括它的观点即可，不用再搜最新进展。",
+    "en": "This news article has already been pasted here. Summarize its claims without searching for updates.",
+    "reference_zh": "某虚构城市计划把部分道路改为步行街。支持者认为能改善环境，反对者担心送货和通勤不便。市政府尚未决定实施日期。",
+    "reference_en": "A fictional city plans to turn some roads into pedestrian streets. Supporters expect environmental benefits, while opponents worry about deliveries and commuting. No implementation date has been set.",
+    "labels": {},
+    "reason_zh": "完整输入已给出，新闻主题本身不构成自动联网要求。",
+    "tags": [
+      "summary",
+      "explicit_no_search",
+      "provided_text"
+    ]
+  },
+  {
+    "group_id": "G021",
+    "family_id": "g_ds_search_intent",
+    "topic": "search_feature_explanation",
+    "zh": "DS 搜索这个功能是怎么工作的？不要真的搜索，给我讲一下流程。",
+    "en": "How does the DS search feature work? Explain the process without actually searching.",
+    "labels": {},
+    "reason_zh": "讨论搜索功能，不是调用搜索功能。",
+    "tags": [
+      "search_mention",
+      "negation",
+      "explanation"
+    ]
+  },
+  {
+    "group_id": "G022",
+    "family_id": "g_ds_search_intent",
+    "topic": "explicit_ds_search",
+    "zh": "用 DeepSeek 搜索查一下目前有哪些公开的多语言分类数据集，给我出处。",
+    "en": "Use DeepSeek search to find public multilingual classification datasets currently available, with sources.",
+    "labels": {
+      "task_type": "research",
+      "difficulty": "standard",
+      "web_search": "yes"
+    },
+    "reason_zh": "明确要求使用搜索并整理多个来源；DeepSeek 此处是搜索工具而非被指定的回答 Agent。",
+    "tags": [
+      "explicit_tool",
+      "search",
+      "datasets"
+    ]
+  },
+  {
+    "group_id": "G023",
+    "topic": "comparison_research",
+    "zh": "查三款支持离线笔记的软件，比较导出格式和同步方式。优先看各自官方文档。",
+    "en": "Research three offline note-taking apps and compare their export formats and synchronization methods, prioritizing official documentation.",
+    "labels": {
+      "task_type": "research",
+      "difficulty": "standard",
+      "web_search": "yes"
+    },
+    "reason_zh": "多来源检索与比较，不要求安装或操作应用。",
+    "tags": [
+      "comparison",
+      "research",
+      "official_sources"
+    ]
+  },
+  {
+    "group_id": "G024",
+    "topic": "current_price_lookup",
+    "zh": "看一下这个公开定价页现在的基础套餐多少钱：https://example.com/pricing 。不要注册账号。",
+    "en": "Check the current base-plan price on this public page: https://example.com/pricing. Do not register an account.",
+    "labels": {
+      "task_type": "research",
+      "web_search": "yes"
+    },
+    "reason_zh": "单一公开页面的当前事实查询，无账号交互需要。",
+    "tags": [
+      "pricing",
+      "public_url",
+      "no_signup"
+    ]
+  },
+  {
+    "group_id": "G025",
+    "topic": "systematic_literature_review",
+    "zh": "做一份关于小模型任务路由的研究综述：找原始论文，比较数据划分、延迟口径和失败情况，并指出哪些结果不能直接横向比较。",
+    "en": "Prepare a research review on small-model task routing: find original papers, compare data splits, latency definitions and failures, and identify results that cannot be directly compared.",
+    "labels": {
+      "task_type": "research",
+      "difficulty": "complex",
+      "web_search": "yes"
+    },
+    "reason_zh": "需要跨论文核对实验方法与证据，属于复杂研究。",
+    "tags": [
+      "literature_review",
+      "complex",
+      "evidence"
+    ]
+  },
+  {
+    "group_id": "G026",
+    "topic": "ambiguous_external_entity",
+    "zh": "帮我查一下那个 Aurora 项目最新进展。",
+    "en": "Look up the latest progress of that Aurora project.",
+    "labels": {
+      "task_type": "research",
+      "difficulty": "unclear",
+      "web_search": "yes"
+    },
+    "reason_zh": "搜索意图明确，但 Aurora 具体指代缺失，范围暂时无法确定。",
+    "tags": [
+      "search",
+      "ambiguous_entity",
+      "missing_context"
+    ]
+  },
+  {
+    "group_id": "G027",
+    "family_id": "g_degree_followup",
+    "topic": "contextual_tuition_lookup",
+    "zh": "那它现在一共需要多少学费？请查官方最新说明。",
+    "en": "Then how much is its total tuition now? Check the latest official information.",
+    "context_zh": "前面讨论的是佐治亚理工的 OMSCS 在线计算机科学硕士项目。",
+    "context_en": "The preceding conversation was about Georgia Tech's OMSCS online master's program in computer science.",
+    "labels": {
+      "task_type": "research",
+      "difficulty": "standard",
+      "web_search": "yes"
+    },
+    "reason_zh": "前文能解析“它”，需要检索当前官方费用并核对计算范围。",
+    "tags": [
+      "history_reference",
+      "search",
+      "education"
+    ]
+  },
+  {
+    "group_id": "G028",
+    "family_id": "g_degree_followup",
+    "topic": "contextual_degree_value",
+    "zh": "用搜索看看，这个学位在 AI 发展之后还有哪些求职价值。区分统计证据和个人观点。",
+    "en": "Use search to examine the career value of this degree as AI advances. Distinguish statistical evidence from personal opinions.",
+    "context_zh": "用户刚刚询问过佐治亚理工 OMSCS 的课程安排。",
+    "context_en": "The user has just asked about the course schedule of Georgia Tech's OMSCS program.",
+    "labels": {
+      "task_type": "research",
+      "difficulty": "standard",
+      "web_search": "yes"
+    },
+    "reason_zh": "需要把学位指代还原到前文项目，再进行有来源的分析。",
+    "tags": [
+      "history_reference",
+      "research",
+      "evidence_quality"
+    ]
+  },
+  {
+    "group_id": "G029",
+    "topic": "unresolved_deictic_request",
+    "zh": "这个怎么样，你看看再弄一下。",
+    "en": "What about this? Take another look and sort it out.",
+    "labels": {
+      "task_type": "unclear",
+      "difficulty": "unclear",
+      "web_search": "unclear",
+      "input_modality": "unclear",
+      "document_read": "unclear",
+      "media_output": "unclear",
+      "project_access": "unclear",
+      "run_commands": "unclear",
+      "browser_use": "unclear"
+    },
+    "reason_zh": "没有对象、附件或前文，无法确定任务及所需能力。",
+    "tags": [
+      "missing_context",
+      "unclear"
+    ],
+    "family_id": "X-G029-C041-M032"
+  },
+  {
+    "group_id": "G030",
+    "topic": "contextual_translation",
+    "zh": "把刚才那一句译成英文，语气别太生硬。",
+    "en": "Translate that last sentence into English without making it sound too stiff.",
+    "context_zh": "上一句待处理的文本是：方便的话，请在今天下午给我一个答复。",
+    "context_en": "The previous sentence to process was: 方便的话，请在今天下午给我一个答复。",
+    "labels": {
+      "task_type": "translation"
+    },
+    "reason_zh": "前文提供了唯一待翻译句子，指代明确。",
+    "tags": [
+      "history_reference",
+      "translation",
+      "tone"
+    ]
+  },
+  {
+    "group_id": "G031",
+    "topic": "arithmetic",
+    "zh": "三笔支出分别是 18、27 和 35 元，一共多少？",
+    "en": "Three expenses are 18, 27 and 35 units. What is the total?",
+    "labels": {
+      "task_type": "data_analysis"
+    },
+    "reason_zh": "给定数值的简单计算，不需要文件或代码执行。",
+    "tags": [
+      "arithmetic",
+      "self_contained"
+    ]
+  },
+  {
+    "group_id": "G032",
+    "topic": "growth_calculation",
+    "zh": "销售额从 800 增到 920，算一下增长率，并用一句话解释公式。",
+    "en": "Sales increased from 800 to 920. Calculate the growth rate and explain the formula in one sentence.",
+    "labels": {
+      "task_type": "data_analysis"
+    },
+    "reason_zh": "明确的单步数值分析。",
+    "tags": [
+      "percentage",
+      "calculation"
+    ]
+  },
+  {
+    "group_id": "G033",
+    "topic": "spreadsheet_summary",
+    "zh": "读附件销售表，按地区汇总收入，并列出缺失地区名称的行。先不要改文件。",
+    "en": "Read the attached sales spreadsheet, summarize revenue by region, and list rows with missing region names. Do not modify the file yet.",
+    "attachments": [
+      {
+        "kind": "document",
+        "name": "sales.xlsx"
+      }
+    ],
+    "labels": {
+      "task_type": "data_analysis",
+      "difficulty": "standard",
+      "document_read": "yes"
+    },
+    "reason_zh": "需要读取现有表格并做分组与质量检查，不要求修改或执行特定命令。",
+    "tags": [
+      "spreadsheet",
+      "read_only",
+      "data_quality"
+    ],
+    "family_id": "X-G033-M034"
+  },
+  {
+    "group_id": "G034",
+    "topic": "correlation_interpretation",
+    "zh": "下面五组数据里广告费和收入一起上涨，能不能据此说广告造成了增长？只分析这些数据的局限。",
+    "en": "Advertising spend and revenue rise together in the five pairs below. Does that prove advertising caused the growth? Analyze only the limitations of these data.",
+    "reference_zh": "广告费：1、2、3、4、5；收入：10、12、13、16、18。没有记录季节、促销或客户变化。",
+    "reference_en": "Advertising spend: 1, 2, 3, 4, 5. Revenue: 10, 12, 13, 16, 18. Season, promotions and customer changes were not recorded.",
+    "labels": {
+      "task_type": "data_analysis",
+      "difficulty": "standard"
+    },
+    "reason_zh": "需要区分相关性与因果、识别缺失变量，但不需要联网。",
+    "tags": [
+      "causality",
+      "provided_data",
+      "no_search"
+    ]
+  },
+  {
+    "group_id": "G035",
+    "topic": "experiment_audit",
+    "zh": "审查附件 A/B 实验报告，检查随机分组、重复用户、提前停止和多重比较是否会影响结论，最后提出可验证的复分析方案。",
+    "en": "Audit the attached A/B experiment report for randomization, repeated users, early stopping and multiple comparisons, then propose a verifiable reanalysis plan.",
+    "attachments": [
+      {
+        "kind": "document",
+        "name": "experiment-report.pdf"
+      }
+    ],
+    "labels": {
+      "task_type": "data_analysis",
+      "difficulty": "complex",
+      "document_read": "yes"
+    },
+    "reason_zh": "需要跨多个实验设计因素审查已有报告，未要求实际运行复分析。",
+    "tags": [
+      "experiment",
+      "complex",
+      "document",
+      "plan_only"
+    ]
+  },
+  {
+    "group_id": "G036",
+    "topic": "chart_from_numbers",
+    "zh": "用下面的数据做一个柱状图，标题写“季度收入”：Q1=12，Q2=18，Q3=16，Q4=21。",
+    "en": "Make a bar chart from these values titled 'Quarterly revenue': Q1=12, Q2=18, Q3=16, Q4=21.",
+    "labels": {
+      "task_type": "data_analysis"
+    },
+    "reason_zh": "统计图表属于数据可视化，不要求生成式生图或指定命令执行。",
+    "tags": [
+      "chart",
+      "not_image_generation"
+    ]
+  },
+  {
+    "group_id": "G037",
+    "topic": "sql_as_text",
+    "zh": "给我一条 SQL，按 customer_id 统计 orders 表里的订单数量。只返回语句，不要连接数据库。",
+    "en": "Give me SQL to count rows in the orders table by customer_id. Return only the statement and do not connect to a database.",
+    "labels": {
+      "task_type": "coding"
+    },
+    "reason_zh": "交付代码文本，不需要访问真实项目或运行查询。",
+    "tags": [
+      "sql",
+      "code_only",
+      "no_execution"
+    ]
+  },
+  {
+    "group_id": "G038",
+    "topic": "budget_scenarios",
+    "zh": "用这些假设比较三种月度预算：固定成本 500，收入可能是 700、1000、1400，另外预留收入的 15% 作缓冲。算出各方案剩余金额。",
+    "en": "Compare three monthly budgets using these assumptions: fixed costs are 500, income could be 700, 1000 or 1400, and 15% of income is reserved as a buffer. Calculate the remainder in each case.",
+    "labels": {
+      "task_type": "data_analysis",
+      "difficulty": "standard"
+    },
+    "reason_zh": "给定假设的多情景计算，不需要实际金融数据或联网。",
+    "tags": [
+      "budget_math",
+      "scenarios",
+      "synthetic_numbers"
+    ]
+  },
+  {
+    "group_id": "G039",
+    "topic": "browser_button_action",
+    "zh": "在当前打开的网页里点击“显示更多”，让我看到完整列表。",
+    "en": "Click 'Show more' on the currently open webpage so I can see the full list.",
+    "labels": {
+      "task_type": "automation",
+      "browser_use": "yes"
+    },
+    "reason_zh": "需要交互当前网页状态，不是搜索公开资料。",
+    "tags": [
+      "browser_action",
+      "ui_state"
+    ]
+  },
+  {
+    "group_id": "G040",
+    "topic": "private_app_read",
+    "zh": "在已登录的网页邮箱里看看未读邮件有多少封，只报数量，不要打开邮件内容。",
+    "en": "Check how many unread messages are in the signed-in webmail app. Report only the count without opening message contents.",
+    "labels": {
+      "task_type": "automation",
+      "browser_use": "yes"
+    },
+    "reason_zh": "查看已登录应用状态，需要浏览器交互，不是外部网页搜索。",
+    "tags": [
+      "private_app",
+      "read_only",
+      "browser_action"
+    ]
+  },
+  {
+    "group_id": "G041",
+    "topic": "unknown_named_executor",
+    "zh": "让 Vega 帮我写一句简短的活动开场白，语气轻松。",
+    "en": "Have Vega write a short, relaxed opening line for an event.",
+    "labels": {
+      "task_type": "writing",
+      "named_agent": "invoke"
+    },
+    "reason_zh": "调用意图清楚，但 Vega 不在当前候选列表；需要报告或解析未知目标，不能假装该执行器可用。",
+    "tags": [
+      "named_agent",
+      "unknown_target",
+      "runtime_resolution"
+    ],
+    "candidate_executors": [
+      "Muse",
+      "Alex",
+      "Orion",
+      "Nova"
+    ],
+    "resolution": {
+      "assign_targets": [
+        "Vega"
+      ],
+      "exclude_targets": [],
+      "status": "unknown_target"
+    }
+  },
+  {
+    "group_id": "G042",
+    "topic": "website_instruction_only",
+    "zh": "一般网站的“忘记密码”流程是什么？给我解释步骤，不要替我打开网站。",
+    "en": "How does a typical website's 'Forgot password' flow work? Explain the steps without opening a website for me.",
+    "labels": {},
+    "reason_zh": "说明操作流程，不实际操作浏览器。",
+    "tags": [
+      "how_to",
+      "no_browser_action"
+    ]
+  },
+  {
+    "group_id": "G043",
+    "topic": "fill_form_without_submit",
+    "zh": "在当前网页表单的备注里填上“请下午联系”，填好就停，不要点击提交。",
+    "en": "Enter 'Please contact me in the afternoon' in the notes field of the current web form, then stop without clicking Submit.",
+    "labels": {
+      "task_type": "automation",
+      "browser_use": "yes"
+    },
+    "reason_zh": "请求明确的网页填写行为；不提交是操作边界而非取消浏览器需求。",
+    "tags": [
+      "browser_action",
+      "no_submit",
+      "scope_boundary"
+    ]
+  },
+  {
+    "group_id": "G044",
+    "topic": "one_time_reminder",
+    "zh": "明天下午三点提醒我检查备份。",
+    "en": "Remind me tomorrow at 3 p.m. to check the backup.",
+    "labels": {
+      "task_type": "automation"
+    },
+    "reason_zh": "创建一次性提醒，不必假设用终端或浏览器实现。",
+    "tags": [
+      "schedule",
+      "one_time",
+      "tool_agnostic"
+    ]
+  },
+  {
+    "group_id": "G045",
+    "topic": "conditional_recurring_monitor",
+    "zh": "每个工作日上午检查一次这个公开公告页，有新条目才通知我，没有变化就安静。",
+    "en": "Check this public announcement page every weekday morning. Notify me only when there is a new entry, and stay quiet otherwise.",
+    "context_zh": "前面给出的公告页面是 https://example.com/announcements 。",
+    "context_en": "The announcement page provided earlier is https://example.com/announcements.",
+    "labels": {
+      "task_type": "automation",
+      "difficulty": "standard",
+      "web_search": "yes"
+    },
+    "reason_zh": "需要定时执行网页读取并比较变化，不要求交互浏览器。",
+    "tags": [
+      "schedule",
+      "monitor",
+      "public_retrieval",
+      "history_reference"
+    ]
+  },
+  {
+    "group_id": "G046",
+    "topic": "ambiguous_executor_alias",
+    "zh": "让 Alex 帮我起三个简洁的博客标题，主题是离线笔记。",
+    "en": "Have Alex suggest three concise blog titles about offline notes.",
+    "labels": {
+      "task_type": "writing",
+      "named_agent": "invoke"
+    },
+    "reason_zh": "调用意图明确，但两个候选连接都叫 Alex；目标消歧交给策略层，不能随意绑定某个账号。",
+    "tags": [
+      "named_agent",
+      "ambiguous_target",
+      "runtime_resolution"
+    ],
+    "candidate_executors": [
+      "Alex (local)",
+      "Alex (work)",
+      "Muse"
+    ],
+    "resolution": {
+      "assign_targets": [
+        "Alex"
+      ],
+      "exclude_targets": [],
+      "status": "ambiguous_target"
+    }
+  },
+  {
+    "group_id": "G047",
+    "family_id": "g_command_vs_execute",
+    "topic": "command_example_only",
+    "zh": "给我一个 PowerShell 命令，列出当前项目目录里的文件。只告诉我命令，不要运行。",
+    "en": "Give me a PowerShell command to list files in the current project directory. Show the command only; do not run it.",
+    "labels": {
+      "task_type": "coding"
+    },
+    "reason_zh": "只生成命令文本，不实际读取项目或执行。",
+    "tags": [
+      "command_text",
+      "no_execution"
+    ]
+  },
+  {
+    "group_id": "G048",
+    "family_id": "g_command_vs_execute",
+    "topic": "execute_readonly_command",
+    "zh": "在终端运行只读命令，列出当前项目目录的文件和子目录，不要更改它们。",
+    "en": "Run a read-only terminal command to list files and subdirectories in the current project directory without changing them.",
+    "labels": {
+      "task_type": "automation",
+      "project_access": "read",
+      "run_commands": "yes"
+    },
+    "reason_zh": "明确要求执行终端命令读取项目，保持只读。",
+    "tags": [
+      "execution",
+      "read_only",
+      "project"
+    ]
+  },
+  {
+    "group_id": "G049",
+    "topic": "remote_status_command",
+    "zh": "用已配置的 ssh 连接测试服务器，运行 uptime，然后把结果告诉我。不要重启任何服务。",
+    "en": "Use the configured SSH connection to the test server, run uptime, and report the result. Do not restart any service.",
+    "labels": {
+      "task_type": "automation",
+      "run_commands": "yes"
+    },
+    "reason_zh": "实际远程命令查询，不需要修改源项目或做网页搜索。",
+    "tags": [
+      "ssh",
+      "execution",
+      "read_only"
+    ]
+  },
+  {
+    "group_id": "G050",
+    "topic": "local_workspace_cleanup",
+    "zh": "用 PowerShell 删除当前项目 tmp 目录中扩展名为 .tmp 的文件，先列出目标，确认范围后只删这些。",
+    "en": "Use PowerShell to remove files with the .tmp extension from the current project's tmp directory. List the targets first, verify the scope, and remove only those files.",
+    "labels": {
+      "task_type": "automation",
+      "difficulty": "standard",
+      "project_access": "write",
+      "run_commands": "yes"
+    },
+    "reason_zh": "需要命令执行和项目文件删除；标签描述需求，不授予删除权限。",
+    "tags": [
+      "cleanup",
+      "execution",
+      "write_request",
+      "scope_boundary"
+    ]
+  },
+  {
+    "group_id": "G051",
+    "family_id": "X-G055-C063",
+    "topic": "named_agent_invoke",
+    "zh": "让 Muse 把这句话翻译成英文：“这次讨论先到这里。”",
+    "en": "Have Muse translate this sentence into English: “这次讨论先到这里。”",
+    "labels": {
+      "task_type": "translation",
+      "named_agent": "invoke"
+    },
+    "reason_zh": "明确让具名执行器完成翻译，应解析调用关系。",
+    "tags": [
+      "named_agent",
+      "invoke",
+      "translation"
+    ],
+    "candidate_executors": [
+      "Muse",
+      "Alex",
+      "Orion",
+      "Nova"
+    ],
+    "resolution": {
+      "assign_targets": [
+        "Muse"
+      ],
+      "exclude_targets": [],
+      "status": "resolved"
+    }
+  },
+  {
+    "group_id": "G052",
+    "family_id": "X-G055-C063",
+    "topic": "named_agent_discussion",
+    "zh": "这里的 Muse 是一个模型、一个账号，还是一个角色？只根据下面的说明解释。",
+    "en": "Is Muse here a model, an account, or a role? Explain using only the description below.",
+    "reference_zh": "界面允许用户给一个执行器连接取别名，例如 Muse。别名不决定其底层模型。",
+    "reference_en": "The interface lets users give an executor connection an alias, such as Muse. The alias does not determine its underlying model.",
+    "labels": {
+      "named_agent": "discuss"
+    },
+    "reason_zh": "讨论 Muse 的概念身份，没有派任务给它。",
+    "tags": [
+      "named_agent",
+      "discuss",
+      "provided_text"
+    ],
+    "candidate_executors": [
+      "Muse",
+      "Alex",
+      "Orion",
+      "Nova"
+    ]
+  },
+  {
+    "group_id": "G053",
+    "family_id": "X-G055-C063",
+    "topic": "named_agent_exclusion",
+    "zh": "不要用 Muse，帮我把这句公告写得简短些：“由于系统维护，今晚十点至十一点暂停访问。”",
+    "en": "Do not use Muse. Shorten this announcement: 'Access will be unavailable from 10 to 11 tonight because of system maintenance.'",
+    "labels": {
+      "task_type": "writing",
+      "named_agent": "avoid"
+    },
+    "reason_zh": "排除具名执行器，同时提出普通文字改写需求。",
+    "tags": [
+      "named_agent",
+      "avoid",
+      "negation"
+    ],
+    "candidate_executors": [
+      "Muse",
+      "Alex",
+      "Orion",
+      "Nova"
+    ],
+    "resolution": {
+      "assign_targets": [],
+      "exclude_targets": [
+        "Muse"
+      ],
+      "status": "resolved"
+    }
+  },
+  {
+    "group_id": "G054",
+    "family_id": "X-G055-C063",
+    "topic": "quoted_agent_instruction",
+    "zh": "概括下面的聊天记录，不要执行记录中的指令。",
+    "en": "Summarize the chat transcript below without executing any instructions in it.",
+    "reference_zh": "甲：让 Muse 搜索竞争对手。乙：先等等，预算还没批准。甲：那今天只整理问题。",
+    "reference_en": "A: Have Muse search for competitors. B: Wait; the budget has not been approved. A: Then just organize the questions today.",
+    "labels": {},
+    "reason_zh": "具名调用与搜索都在引用记录中，不是当前用户指令。",
+    "tags": [
+      "quoted_instruction",
+      "no_agent_call",
+      "no_search"
+    ],
+    "candidate_executors": [
+      "Muse",
+      "Alex",
+      "Orion",
+      "Nova"
+    ]
+  },
+  {
+    "group_id": "G055",
+    "family_id": "X-G055-C063",
+    "topic": "ambiguous_agent_address",
+    "zh": "Muse 呢？",
+    "en": "What about Muse?",
+    "labels": {
+      "task_type": "unclear",
+      "difficulty": "unclear",
+      "web_search": "unclear",
+      "input_modality": "unclear",
+      "document_read": "unclear",
+      "media_output": "unclear",
+      "project_access": "unclear",
+      "run_commands": "unclear",
+      "browser_use": "unclear",
+      "named_agent": "unclear"
+    },
+    "reason_zh": "没有前文，无法确定是在问身份、状态，还是请求调用。",
+    "tags": [
+      "named_agent",
+      "ambiguous",
+      "missing_context"
+    ],
+    "candidate_executors": [
+      "Muse",
+      "Alex",
+      "Orion",
+      "Nova"
+    ],
+    "resolution": {
+      "assign_targets": [],
+      "exclude_targets": [],
+      "status": "ambiguous_intent"
+    }
+  },
+  {
+    "group_id": "G056",
+    "topic": "alternate_agent_research",
+    "zh": "请 Alex 查一下两个公开云盘目前的免费容量限制，并给出官方来源。",
+    "en": "Ask Alex to check the current free-storage limits of two public cloud-drive services and provide official sources.",
+    "labels": {
+      "task_type": "research",
+      "difficulty": "standard",
+      "web_search": "yes",
+      "named_agent": "invoke"
+    },
+    "reason_zh": "具名调用与实时检索是两个独立需求。",
+    "tags": [
+      "named_agent",
+      "invoke",
+      "search",
+      "dynamic_name"
+    ],
+    "candidate_executors": [
+      "Muse",
+      "Alex",
+      "Orion",
+      "Nova"
+    ],
+    "resolution": {
+      "assign_targets": [
+        "Alex"
+      ],
+      "exclude_targets": [],
+      "status": "resolved"
+    }
+  },
+  {
+    "group_id": "G057",
+    "topic": "negative_and_positive_agent",
+    "zh": "这次别交给 Orion，让 Nova 根据这三个要点写一段产品介绍：离线、可导出、支持标签。",
+    "en": "Do not assign this to Orion; have Nova write a product introduction from these three points: offline, exportable, and supports tags.",
+    "labels": {
+      "task_type": "writing",
+      "named_agent": "reassign"
+    },
+    "reason_zh": "明确排除 Orion 并改派给 Nova；需求标签保留改派语义，具体目标和排除对象由确定性策略解析。",
+    "tags": [
+      "named_agent",
+      "invoke",
+      "negated_other_target"
+    ],
+    "candidate_executors": [
+      "Muse",
+      "Alex",
+      "Orion",
+      "Nova"
+    ],
+    "resolution": {
+      "assign_targets": [
+        "Nova"
+      ],
+      "exclude_targets": [
+        "Orion"
+      ],
+      "status": "resolved"
+    }
+  },
+  {
+    "group_id": "G058",
+    "topic": "agent_output_discussion",
+    "zh": "Orion 上一条回答用了什么结构？分析表达方式就行，不要再叫它运行。",
+    "en": "What structure did Orion use in its previous answer? Analyze the presentation only, without running it again.",
+    "context_zh": "上一条回答先给结论，再列三项证据，最后说明一条不确定性。",
+    "context_en": "The previous answer stated a conclusion, listed three pieces of evidence, and ended with one uncertainty.",
+    "labels": {
+      "named_agent": "discuss"
+    },
+    "reason_zh": "分析具名 Agent 的已有输出，不是重新委派。",
+    "tags": [
+      "named_agent",
+      "discuss",
+      "history_reference"
+    ],
+    "candidate_executors": [
+      "Muse",
+      "Alex",
+      "Orion",
+      "Nova"
+    ]
+  },
+  {
+    "group_id": "G059",
+    "topic": "two_named_agents_two_deliverables",
+    "zh": "让 Alex 写一段活动邀请文案，让 Nova 算出 24 人每人 15 元的总预算，分别给我结果。",
+    "en": "Have Alex write an event invitation and Nova calculate the total budget for 24 people at 15 units each. Give me both results separately.",
+    "labels": {
+      "task_type": "mixed",
+      "difficulty": "standard",
+      "named_agent": "invoke"
+    },
+    "reason_zh": "两个独立交付物分别涉及写作与计算，并明确调用两个具名执行器。",
+    "tags": [
+      "named_agent",
+      "multiple_targets",
+      "mixed_deliverables"
+    ],
+    "candidate_executors": [
+      "Muse",
+      "Alex",
+      "Orion",
+      "Nova"
+    ],
+    "resolution": {
+      "assign_targets": [
+        "Alex",
+        "Nova"
+      ],
+      "exclude_targets": [],
+      "status": "resolved"
+    }
+  },
+  {
+    "group_id": "G060",
+    "topic": "spoken_agent_alias",
+    "zh": "叫缪斯来改一下这句话的语气，别那么强硬：“你必须今天交。”",
+    "en": "Ask Myooz to soften this sentence: 'You must deliver it today.'",
+    "context_zh": "用户说明语音转写里的“缪斯”指当前已连接的 Muse 助手。",
+    "context_en": "The user explained that the speech-transcribed name 'Myooz' refers to the connected Muse assistant.",
+    "labels": {
+      "task_type": "writing",
+      "named_agent": "invoke"
+    },
+    "reason_zh": "上下文提供别名映射，语音转写变体仍是明确调用。",
+    "tags": [
+      "speech_transcription",
+      "alias",
+      "named_agent",
+      "invoke"
+    ],
+    "candidate_executors": [
+      "Muse",
+      "Alex",
+      "Orion",
+      "Nova"
+    ],
+    "resolution": {
+      "assign_targets": [
+        "Muse"
+      ],
+      "exclude_targets": [],
+      "status": "resolved"
+    }
+  },
+  {
+    "group_id": "G061",
+    "topic": "missing_translation_source",
+    "zh": "把那个翻译成英文。",
+    "en": "Translate that into English.",
+    "labels": {
+      "task_type": "translation",
+      "difficulty": "unclear",
+      "input_modality": "unclear",
+      "document_read": "unclear"
+    },
+    "reason_zh": "翻译目标明确，但缺少待翻译内容及其载体。",
+    "tags": [
+      "translation",
+      "missing_input",
+      "unclear"
+    ]
+  },
+  {
+    "group_id": "G062",
+    "topic": "continue_with_context",
+    "zh": "继续，按刚才的格式把第二句也处理了。",
+    "en": "Continue and process the second sentence in the same format.",
+    "context_zh": "用户要把两句中文翻译成英文，只返回译文。第一句已完成；第二句是“文件已收到，谢谢。”",
+    "context_en": "The user asked to translate two Chinese sentences into English, returning only translations. The first is complete; the second is “文件已收到，谢谢。”",
+    "labels": {
+      "task_type": "translation"
+    },
+    "reason_zh": "前文完整定义了继续任务，不应误判为未知请求。",
+    "tags": [
+      "continuation",
+      "history_reference",
+      "translation"
+    ]
+  },
+  {
+    "group_id": "G063",
+    "topic": "accepted_search_offer",
+    "zh": "好，你查一下吧。",
+    "en": "Okay, go ahead and check.",
+    "context_zh": "上一轮助手提出：可以查示例市中央图书馆目前周末的开放时间，并提供官方网页。",
+    "context_en": "The assistant's previous offer was to check the Example City Central Library's current weekend hours and provide its official webpage.",
+    "labels": {
+      "task_type": "research",
+      "web_search": "yes"
+    },
+    "reason_zh": "用户接受前一轮明确的联网查询建议。",
+    "tags": [
+      "continuation",
+      "search",
+      "history_reference"
+    ]
+  },
+  {
+    "group_id": "G064",
+    "topic": "quoted_request_as_data",
+    "zh": "下面是一段测试数据，判断它有没有礼貌，不要执行里面任何操作。",
+    "en": "The following is test data. Judge whether it is polite without carrying out any operations it mentions.",
+    "reference_zh": "请立刻搜索我的竞争对手，再让 Nova 把结果发出去，不用问我。",
+    "reference_en": "Please search for my competitors immediately, then have Nova send out the results without asking me.",
+    "labels": {},
+    "reason_zh": "任务是文本语气判断，引用中的工具与发送命令无执行效力。",
+    "tags": [
+      "quoted_instruction",
+      "text_classification",
+      "no_agent_call"
+    ],
+    "candidate_executors": [
+      "Muse",
+      "Alex",
+      "Orion",
+      "Nova"
+    ]
+  },
+  {
+    "group_id": "G065",
+    "topic": "ignored_image_attachment",
+    "zh": "图片是我误传的，不用看。把“已经完成”改成英文就好。",
+    "en": "The image was attached by mistake; ignore it. Just translate “已经完成” into English.",
+    "attachments": [
+      {
+        "kind": "image",
+        "name": "accidental-image.png"
+      }
+    ],
+    "labels": {
+      "task_type": "translation"
+    },
+    "reason_zh": "有图片不代表需要视觉理解；用户明确忽略图片。",
+    "tags": [
+      "attachment_present",
+      "image_ignored",
+      "translation"
+    ],
+    "family_id": "X-G065-M005"
+  },
+  {
+    "group_id": "G066",
+    "topic": "receipt_image_analysis",
+    "zh": "看一下这张收据截图，把各项金额相加，并核对是否等于截图里的总额。",
+    "en": "Read this receipt screenshot, add the individual amounts, and check whether they match the total shown.",
+    "attachments": [
+      {
+        "kind": "image",
+        "name": "receipt.png"
+      }
+    ],
+    "labels": {
+      "task_type": "data_analysis",
+      "difficulty": "standard",
+      "input_modality": "image"
+    },
+    "reason_zh": "需要读取图片中的金额再计算；不预先猜测图片内容。",
+    "tags": [
+      "vision",
+      "calculation",
+      "synthetic_attachment"
+    ]
+  },
+  {
+    "group_id": "G067",
+    "topic": "external_data_reconciliation",
+    "zh": "读取附件各地区销量表，再查官方公布的人口数据，统一地区名称和统计年份后比较人均销量，注明无法对齐的项目。",
+    "en": "Read the attached regional sales table, retrieve official population data, align region names and reporting years, and compare sales per capita while marking items that cannot be aligned.",
+    "attachments": [
+      {
+        "kind": "document",
+        "name": "regional-sales.csv"
+      }
+    ],
+    "labels": {
+      "task_type": "data_analysis",
+      "difficulty": "complex",
+      "web_search": "yes",
+      "document_read": "yes"
+    },
+    "reason_zh": "需要合并外部数据并处理口径、年份与实体对齐。",
+    "tags": [
+      "data_analysis",
+      "search",
+      "document",
+      "complex"
+    ]
+  },
+  {
+    "group_id": "G068",
+    "topic": "video_script_text_only",
+    "zh": "给我写一个三十秒产品介绍视频的旁白脚本，只要文字，不要生成声音或视频。",
+    "en": "Write the narration script for a thirty-second product introduction video. Text only; do not generate audio or video.",
+    "labels": {
+      "task_type": "writing"
+    },
+    "reason_zh": "最终交付文字脚本，提到视频不代表调用视频生成。",
+    "tags": [
+      "video_mention",
+      "text_only",
+      "no_media_generation"
+    ]
+  },
+  {
+    "group_id": "G069",
+    "topic": "music_generation_explanation",
+    "zh": "AI 生成音乐和语音合成有什么不同？从输入、输出和常见用途解释，不用做演示。",
+    "en": "How does AI music generation differ from speech synthesis? Explain their inputs, outputs and common uses without creating a demo.",
+    "labels": {
+      "difficulty": "standard"
+    },
+    "reason_zh": "比较媒体生成技术的概念，不要求实际生成媒体。",
+    "tags": [
+      "media_discussion",
+      "no_media_generation",
+      "explanation"
+    ]
+  },
+  {
+    "group_id": "G070",
+    "topic": "search_despite_runtime_unavailability",
+    "zh": "用 DS 搜索一下公开的文本分类评测集。如果搜索服务没额度就告诉我，不要假装搜过。",
+    "en": "Use DS search to find public text-classification benchmarks. If the search service has no quota, tell me rather than pretending a search happened.",
+    "labels": {
+      "task_type": "research",
+      "difficulty": "standard",
+      "web_search": "yes"
+    },
+    "reason_zh": "额度是否可用属于运行状态，不能把明确搜索需求改标为不需要搜索。",
+    "tags": [
+      "search",
+      "runtime_boundary",
+      "availability",
+      "honest_failure"
+    ]
+  }
+]

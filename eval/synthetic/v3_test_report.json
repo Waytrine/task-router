@@ -1,0 +1,828 @@
+{
+  "rows": 60,
+  "heads": {
+    "task_type": {
+      "accuracy": 0.9,
+      "macro_f1_supported": 0.853317143561046,
+      "per_label": {
+        "conversation": {
+          "support": 6,
+          "recall": 0.8333333333333334,
+          "precision": 1.0,
+          "f1": 0.9090909090909091
+        },
+        "coding": {
+          "support": 18,
+          "recall": 1.0,
+          "precision": 0.782608695652174,
+          "f1": 0.8780487804878049
+        },
+        "research": {
+          "support": 4,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "writing": {
+          "support": 4,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "translation": {
+          "support": 4,
+          "recall": 1.0,
+          "precision": 0.8,
+          "f1": 0.8888888888888888
+        },
+        "data_analysis": {
+          "support": 2,
+          "recall": 0.0,
+          "precision": null,
+          "f1": 0.0
+        },
+        "media": {
+          "support": 12,
+          "recall": 0.75,
+          "precision": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "automation": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "mixed": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "unclear": {
+          "support": 6,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        }
+      },
+      "invalid_or_abstained": 0
+    },
+    "difficulty": {
+      "accuracy": 0.8833333333333333,
+      "macro_f1_supported": 0.9306138009912315,
+      "per_label": {
+        "simple": {
+          "support": 32,
+          "recall": 0.84375,
+          "precision": 0.9310344827586207,
+          "f1": 0.8852459016393442
+        },
+        "standard": {
+          "support": 20,
+          "recall": 0.9,
+          "precision": 0.782608695652174,
+          "f1": 0.8372093023255814
+        },
+        "complex": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "unclear": {
+          "support": 6,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        }
+      },
+      "invalid_or_abstained": 0
+    },
+    "web_search": {
+      "accuracy": 1.0,
+      "macro_f1_supported": 1.0,
+      "per_label": {
+        "yes": {
+          "support": 6,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "no": {
+          "support": 48,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "unclear": {
+          "support": 6,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        }
+      },
+      "invalid_or_abstained": 0
+    },
+    "input_modality": {
+      "accuracy": 0.9833333333333333,
+      "macro_f1_supported": 0.9853479853479854,
+      "per_label": {
+        "text": {
+          "support": 46,
+          "recall": 0.9782608695652174,
+          "precision": 1.0,
+          "f1": 0.989010989010989
+        },
+        "image": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "audio": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "video": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "mixed": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "unclear": {
+          "support": 6,
+          "recall": 1.0,
+          "precision": 0.8571428571428571,
+          "f1": 0.9230769230769231
+        }
+      },
+      "invalid_or_abstained": 0
+    },
+    "document_read": {
+      "accuracy": 0.9666666666666667,
+      "macro_f1_supported": 0.8823529411764706,
+      "per_label": {
+        "yes": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "no": {
+          "support": 52,
+          "recall": 0.9615384615384616,
+          "precision": 1.0,
+          "f1": 0.9803921568627451
+        },
+        "unclear": {
+          "support": 6,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        }
+      },
+      "invalid_or_abstained": 0
+    },
+    "media_output": {
+      "accuracy": 0.95,
+      "macro_f1_supported": 0.8405948162045723,
+      "per_label": {
+        "none": {
+          "support": 40,
+          "recall": 1.0,
+          "precision": 0.9523809523809523,
+          "f1": 0.975609756097561
+        },
+        "image_create": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "image_edit": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "speech": {
+          "support": 2,
+          "recall": 0.5,
+          "precision": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "music": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "video_generate": {
+          "support": 2,
+          "recall": 0.0,
+          "precision": null,
+          "f1": 0.0
+        },
+        "video_render": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "mixed": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "unclear": {
+          "support": 6,
+          "recall": 1.0,
+          "precision": 0.8571428571428571,
+          "f1": 0.9230769230769231
+        }
+      },
+      "invalid_or_abstained": 0
+    },
+    "project_access": {
+      "accuracy": 0.9666666666666667,
+      "macro_f1_supported": 0.9627976190476191,
+      "per_label": {
+        "none": {
+          "support": 42,
+          "recall": 0.9761904761904762,
+          "precision": 0.9761904761904762,
+          "f1": 0.9761904761904762
+        },
+        "read": {
+          "support": 4,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "write": {
+          "support": 8,
+          "recall": 0.875,
+          "precision": 0.875,
+          "f1": 0.875
+        },
+        "unclear": {
+          "support": 6,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        }
+      },
+      "invalid_or_abstained": 0
+    },
+    "run_commands": {
+      "accuracy": 1.0,
+      "macro_f1_supported": 1.0,
+      "per_label": {
+        "yes": {
+          "support": 6,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "no": {
+          "support": 48,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "unclear": {
+          "support": 6,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        }
+      },
+      "invalid_or_abstained": 0
+    },
+    "browser_use": {
+      "accuracy": 1.0,
+      "macro_f1_supported": 1.0,
+      "per_label": {
+        "yes": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "no": {
+          "support": 52,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "unclear": {
+          "support": 6,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        }
+      },
+      "invalid_or_abstained": 0
+    },
+    "executor_intent": {
+      "accuracy": 0.9666666666666667,
+      "macro_f1_supported": 0.7962264150943397,
+      "per_label": {
+        "none": {
+          "support": 52,
+          "recall": 1.0,
+          "precision": 0.9629629629629629,
+          "f1": 0.9811320754716981
+        },
+        "assign": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "exclude": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "reassign": {
+          "support": 2,
+          "recall": 1.0,
+          "precision": 1.0,
+          "f1": 1.0
+        },
+        "mention_only": {
+          "support": 2,
+          "recall": 0.0,
+          "precision": null,
+          "f1": 0.0
+        },
+        "unclear": {
+          "support": 0,
+          "recall": null,
+          "precision": null,
+          "f1": null
+        }
+      },
+      "invalid_or_abstained": 0
+    }
+  },
+  "all_heads_exact_match": 0.7,
+  "mean_head_accuracy": 0.9616666666666667,
+  "languages": {
+    "en": {
+      "task_type": 0.9333333333333333,
+      "difficulty": 0.8666666666666667,
+      "web_search": 1.0,
+      "input_modality": 1.0,
+      "document_read": 0.9666666666666667,
+      "media_output": 0.9666666666666667,
+      "project_access": 0.9666666666666667,
+      "run_commands": 1.0,
+      "browser_use": 1.0,
+      "executor_intent": 0.9666666666666667
+    },
+    "zh": {
+      "task_type": 0.8666666666666667,
+      "difficulty": 0.9,
+      "web_search": 1.0,
+      "input_modality": 0.9666666666666667,
+      "document_read": 0.9666666666666667,
+      "media_output": 0.9333333333333333,
+      "project_access": 0.9666666666666667,
+      "run_commands": 1.0,
+      "browser_use": 1.0,
+      "executor_intent": 0.9666666666666667
+    }
+  },
+  "note": "Synthetic-label agreement, not production quality or calibrated confidence. Translations are correlated; inspect family-level mistakes.",
+  "data_sha256": "fb3ef94942f687c00be5bd0df25a4f81168b0150b4fdb2ba641f2279e1995ae7",
+  "model_dir": "Task Router v3 (Colab run directory; path removed)",
+  "device": "cuda",
+  "load_seconds": 11.395694080000112,
+  "failures": 0,
+  "first_case_ms": 409.328,
+  "successful_p50_ms": 35.638000000000005,
+  "successful_p95_ms": 38.832,
+  "majority_baseline": {
+    "rows": 60,
+    "heads": {
+      "task_type": {
+        "accuracy": 0.3,
+        "macro_f1_supported": 0.046153846153846156,
+        "per_label": {
+          "conversation": {
+            "support": 6,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "coding": {
+            "support": 18,
+            "recall": 1.0,
+            "precision": 0.3,
+            "f1": 0.46153846153846156
+          },
+          "research": {
+            "support": 4,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "writing": {
+            "support": 4,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "translation": {
+            "support": 4,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "data_analysis": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "media": {
+            "support": 12,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "automation": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "mixed": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "unclear": {
+            "support": 6,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          }
+        },
+        "invalid_or_abstained": 0
+      },
+      "difficulty": {
+        "accuracy": 0.5333333333333333,
+        "macro_f1_supported": 0.17391304347826086,
+        "per_label": {
+          "simple": {
+            "support": 32,
+            "recall": 1.0,
+            "precision": 0.5333333333333333,
+            "f1": 0.6956521739130435
+          },
+          "standard": {
+            "support": 20,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "complex": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "unclear": {
+            "support": 6,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          }
+        },
+        "invalid_or_abstained": 0
+      },
+      "web_search": {
+        "accuracy": 0.8,
+        "macro_f1_supported": 0.2962962962962963,
+        "per_label": {
+          "yes": {
+            "support": 6,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "no": {
+            "support": 48,
+            "recall": 1.0,
+            "precision": 0.8,
+            "f1": 0.8888888888888888
+          },
+          "unclear": {
+            "support": 6,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          }
+        },
+        "invalid_or_abstained": 0
+      },
+      "input_modality": {
+        "accuracy": 0.7666666666666667,
+        "macro_f1_supported": 0.14465408805031446,
+        "per_label": {
+          "text": {
+            "support": 46,
+            "recall": 1.0,
+            "precision": 0.7666666666666667,
+            "f1": 0.8679245283018868
+          },
+          "image": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "audio": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "video": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "mixed": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "unclear": {
+            "support": 6,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          }
+        },
+        "invalid_or_abstained": 0
+      },
+      "document_read": {
+        "accuracy": 0.8666666666666667,
+        "macro_f1_supported": 0.30952380952380953,
+        "per_label": {
+          "yes": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "no": {
+            "support": 52,
+            "recall": 1.0,
+            "precision": 0.8666666666666667,
+            "f1": 0.9285714285714286
+          },
+          "unclear": {
+            "support": 6,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          }
+        },
+        "invalid_or_abstained": 0
+      },
+      "media_output": {
+        "accuracy": 0.6666666666666666,
+        "macro_f1_supported": 0.08888888888888889,
+        "per_label": {
+          "none": {
+            "support": 40,
+            "recall": 1.0,
+            "precision": 0.6666666666666666,
+            "f1": 0.8
+          },
+          "image_create": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "image_edit": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "speech": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "music": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "video_generate": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "video_render": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "mixed": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "unclear": {
+            "support": 6,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          }
+        },
+        "invalid_or_abstained": 0
+      },
+      "project_access": {
+        "accuracy": 0.7,
+        "macro_f1_supported": 0.20588235294117646,
+        "per_label": {
+          "none": {
+            "support": 42,
+            "recall": 1.0,
+            "precision": 0.7,
+            "f1": 0.8235294117647058
+          },
+          "read": {
+            "support": 4,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "write": {
+            "support": 8,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "unclear": {
+            "support": 6,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          }
+        },
+        "invalid_or_abstained": 0
+      },
+      "run_commands": {
+        "accuracy": 0.8,
+        "macro_f1_supported": 0.2962962962962963,
+        "per_label": {
+          "yes": {
+            "support": 6,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "no": {
+            "support": 48,
+            "recall": 1.0,
+            "precision": 0.8,
+            "f1": 0.8888888888888888
+          },
+          "unclear": {
+            "support": 6,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          }
+        },
+        "invalid_or_abstained": 0
+      },
+      "browser_use": {
+        "accuracy": 0.8666666666666667,
+        "macro_f1_supported": 0.30952380952380953,
+        "per_label": {
+          "yes": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "no": {
+            "support": 52,
+            "recall": 1.0,
+            "precision": 0.8666666666666667,
+            "f1": 0.9285714285714286
+          },
+          "unclear": {
+            "support": 6,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          }
+        },
+        "invalid_or_abstained": 0
+      },
+      "executor_intent": {
+        "accuracy": 0.8666666666666667,
+        "macro_f1_supported": 0.18571428571428572,
+        "per_label": {
+          "none": {
+            "support": 52,
+            "recall": 1.0,
+            "precision": 0.8666666666666667,
+            "f1": 0.9285714285714286
+          },
+          "assign": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "exclude": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "reassign": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "mention_only": {
+            "support": 2,
+            "recall": 0.0,
+            "precision": null,
+            "f1": 0.0
+          },
+          "unclear": {
+            "support": 0,
+            "recall": null,
+            "precision": null,
+            "f1": null
+          }
+        },
+        "invalid_or_abstained": 0
+      }
+    },
+    "all_heads_exact_match": 0.03333333333333333,
+    "mean_head_accuracy": 0.7166666666666667,
+    "languages": {
+      "en": {
+        "task_type": 0.3,
+        "difficulty": 0.5333333333333333,
+        "web_search": 0.8,
+        "input_modality": 0.7666666666666667,
+        "document_read": 0.8666666666666667,
+        "media_output": 0.6666666666666666,
+        "project_access": 0.7,
+        "run_commands": 0.8,
+        "browser_use": 0.8666666666666667,
+        "executor_intent": 0.8666666666666667
+      },
+      "zh": {
+        "task_type": 0.3,
+        "difficulty": 0.5333333333333333,
+        "web_search": 0.8,
+        "input_modality": 0.7666666666666667,
+        "document_read": 0.8666666666666667,
+        "media_output": 0.6666666666666666,
+        "project_access": 0.7,
+        "run_commands": 0.8,
+        "browser_use": 0.8666666666666667,
+        "executor_intent": 0.8666666666666667
+      }
+    },
+    "note": "Synthetic-label agreement, not production quality or calibrated confidence. Translations are correlated; inspect family-level mistakes."
+  }
+}
